@@ -1,0 +1,6 @@
+{
+  "themes": ["."],
+  "phpVersion": "8.2",
+  "port": 8894,
+  "testsPort": 8895
+}
