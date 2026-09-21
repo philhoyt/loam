@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  *
- * @since 0.1.0
+ * @since 0.9.0
  * @return void
  */
 function setup() {
@@ -54,7 +54,7 @@ add_action( 'after_setup_theme', __NAMESPACE__ . '\\setup' );
  * Loads the main stylesheet with proper versioning from the build process.
  * Falls back to the theme version if the asset file doesn't exist.
  *
- * @since 0.1.0
+ * @since 0.9.0
  * @return void
  */
 function enqueue_scripts_and_styles() {
@@ -87,7 +87,7 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_scripts_and_styles'
  * Enables theme support for editor styles and loads the editor-specific
  * stylesheet for the block editor.
  *
- * @since 0.1.0
+ * @since 0.9.0
  * @return void
  */
 function add_editor_styles() {
@@ -104,7 +104,7 @@ add_action( 'after_setup_theme', __NAMESPACE__ . '\\add_editor_styles' );
  *
  * Section styles live in styles/blocks/*.json and need no registration.
  *
- * @since 0.1.0
+ * @since 0.9.0
  * @return void
  */
 function register_pattern_categories() {
@@ -121,7 +121,7 @@ add_action( 'init', __NAMESPACE__ . '\\register_pattern_categories' );
 /**
  * Register block styles that need real CSS rather than theme.json properties.
  *
- * @since 0.1.0
+ * @since 0.9.0
  * @return void
  */
 function register_block_styles() {

@@ -3,7 +3,7 @@ Contributors: philhoyt
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 0.1.0
+Stable tag: 0.9.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: one-column, wide-blocks, block-patterns, block-styles, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, rtl-language-support, style-variations, threaded-comments, translation-ready, entertainment, food-and-drink
@@ -49,8 +49,15 @@ Open the Site Editor, go to Styles and choose a colour preset, or edit the palet
 
 == Changelog ==
 
-= 0.1.0 =
-* Initial release.
+= 0.9.0 =
+* Add: Summer, Spring, Autumn and Winter colour presets and two typography presets (Unbounded & Space Grotesk, Space Grotesk).
+* Add: Accent, Dark and Tint section styles for Group, Columns and Cover blocks.
+* Add: Split hero, photo band, four tiles, upcoming events, events grid, alternating media bands, call to action band, menu list, FAQ, hours and location and follow band patterns, with Home, About, Events, Menu and Contact page starters.
+* Add: Featured image mastheads on pages and posts, a Page (No Title) template, comments styled as bubbles, an author card and a keep reading row.
+* Add: Full-screen accent-coloured mobile menu; the four tiles become a 2x2 grid on phones.
+* Add: FAQ pattern built on the core Accordion block (WordPress 6.9 or later).
+* Add: Unbounded and Space Grotesk bundled as variable fonts; CC0 placeholder artwork.
+* Add: Right-to-left stylesheet, served automatically on RTL sites.
 
 == Copyright ==
 

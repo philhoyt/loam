@@ -4,16 +4,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Theme
 
-|                           |                                                                                                                                     |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| Name / slug / text domain | Loam / `loam` / `loam`                                                                                                              |
-| PHP namespace             | `Loam\Setup`                                                                                                                        |
-| Pattern namespace         | `loam/…`                                                                                                                            |
-| Requires                  | WordPress 6.9 (core Accordion block), PHP 8.2                                                                                       |
-| Tested up to              | 7.1 (`theme.json` `$schema` is pinned to `wp/7.1`; both move together)                                                              |
-| Version                   | `style.css` `Version:` is canonical; `package.json` `version` and `readme.txt` `Stable tag` must match it                           |
-| Repository                | https://github.com/philhoyt/loam                                                                                                    |
-| Distribution              | GitHub release zip built by CI on a `v*` tag (`.github/workflows/release.yml`). `dist/` is built in CI, so it stays in `.gitignore` |
+|                           |                                                                                                                                                                                                                                                                                   |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Name / slug / text domain | Loam / `loam` / `loam`                                                                                                                                                                                                                                                            |
+| PHP namespace             | `Loam\Setup`                                                                                                                                                                                                                                                                      |
+| Pattern namespace         | `loam/…`                                                                                                                                                                                                                                                                          |
+| Requires                  | WordPress 6.9 (core Accordion block), PHP 8.2                                                                                                                                                                                                                                     |
+| Tested up to              | 7.1 (`theme.json` `$schema` is pinned to `wp/7.1`; both move together)                                                                                                                                                                                                            |
+| Version                   | `style.css` `Version:` is canonical; `package.json` `version` and `readme.txt` `Stable tag` must match it                                                                                                                                                                         |
+| Repository                | https://github.com/philhoyt/loam                                                                                                                                                                                                                                                  |
+| Distribution              | WordPress Theme Directory zip and a GitHub release zip on a `v*` tag (`.github/workflows/release.yml`). Neither channel runs a build, so `dist/` is committed (only the 0-byte `dist/css/*.js` stubs are ignored); run `npm run build` and commit the result with any SCSS change |
 
 Derived from the `wp-sets` Site Editor theme scaffold; the architecture below is inherited from it.
 
