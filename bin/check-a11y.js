@@ -54,7 +54,9 @@ const impactOrder = { critical: 0, serious: 1, moderate: 2, minor: 3 };
 (async () => {
 	console.log(`Checking ${paths.length} paths on ${baseUrl} at ${VIEWPORTS.length} widths...\n`);
 
-	const browser = await puppeteer.launch();
+	// Ubuntu 24.04 runners block Chrome's unprivileged sandbox; the pages under
+	// test are the site's own, so CI runs without it.
+	const browser = await puppeteer.launch({ args: process.env.CI ? ["--no-sandbox"] : [] });
 	const page = await browser.newPage();
 
 	let violationCount = 0;
