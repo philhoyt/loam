@@ -1,5 +1,7 @@
 # Loam
 
+[![Playground Demo](https://img.shields.io/badge/Playground_Demo-blue?logo=wordpress&logoColor=%23fff&labelColor=%233858e9&color=%23386be9)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/philhoyt/loam/main/_playground/blueprint.json)
+
 A block theme for venues, bars, bowling alleys and clubs: heavy uppercase headings,
 chunky buttons, a cream ground with accent-coloured bands, and patterns for upcoming
 events, signpost tiles, a food and drink menu, hours and location, and an FAQ. Four

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "meta": {
+    "title": "Loam",
+    "description": "A block theme for venues, bars, bowling alleys and clubs: heavy uppercase headings, chunky buttons, accent-coloured bands, four seasonal colour presets and patterns for events, menus, hours and FAQs.",
+    "author": "philhoyt",
+    "categories": ["themes", "block-theme"]
+  },
+  "preferredVersions": {
+    "php": "8.3",
+    "wp": "latest"
+  },
+  "login": true,
+  "landingPage": "/",
+  "steps": [
+    {
+      "step": "installTheme",
+      "themeData": {
+        "resource": "url",
+        "url": "https://github.com/philhoyt/loam/releases/latest/download/loam.zip"
+      },
+      "options": {
+        "activate": true
+      }
+    },
+    {
+      "step": "setSiteOptions",
+      "options": {
+        "blogname": "Loam",
+        "blogdescription": "Bowling, bands and late nights",
+        "permalink_structure": "/%postname%/"
+      }
+    },
+    {
+      "step": "importWxr",
+      "file": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/philhoyt/loam/main/_playground/demo.xml"
+      },
+      "defaultAuthorUsername": "admin"
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require_once 'wordpress/wp-load.php'; $home = get_posts( array( 'name' => 'home', 'post_type' => 'page', 'numberposts' => 1 ) ); if ( $home ) { update_option( 'show_on_front', 'page' ); update_option( 'page_on_front', $home[0]->ID ); } $sample = get_posts( array( 'name' => 'sample-page', 'post_type' => 'page', 'numberposts' => 1 ) ); if ( $sample ) { wp_delete_post( $sample[0]->ID, true ); } flush_rewrite_rules();"
+    }
+  ]
+}
