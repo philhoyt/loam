@@ -24,18 +24,6 @@
 
 // Shared between the front-end and the editor.
 
-// Page content sits directly under the masthead and directly above the footer
-// with no wrapper padding, so a page built from bands is flush at both ends.
-// Content that starts or ends with an ordinary block gets the breathing room
-// the wrapper used to provide.
-.wp-block-post-content > :first-child:not(.alignfull) {
-	margin-block-start: var(--wp--preset--spacing--xl);
-}
-
-.wp-block-post-content > :last-child:not(.alignfull) {
-	margin-block-end: var(--wp--preset--spacing--xxl);
-}
-
 // Headings inside a photo band need a shadow to stay legible over busy images.
 .wp-block-cover :where(h1, h2, h3) {
 	text-shadow: 0 2px 4px rgb(0 0 0 / 40%);
