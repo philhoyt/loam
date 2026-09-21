@@ -135,3 +135,33 @@ function register_block_styles() {
 	);
 }
 add_action( 'init', __NAMESPACE__ . '\\register_block_styles' );
+
+/**
+ * Unwrap the Page List block inside a Navigation block.
+ *
+ * When a Navigation block falls back to a Page List (no menu chosen, or a
+ * menu that is only a Page List), core renders the list's own <ul> directly
+ * inside the navigation's <ul>. A list may only contain list items (WCAG
+ * 1.3.1; axe "list"), so the inner <ul> is merged into the outer one.
+ *
+ * @param string $content Rendered navigation block.
+ * @return string
+ */
+function unwrap_page_list_in_navigation( string $content ): string {
+	$opened = preg_replace(
+		'#<ul class="wp-block-navigation__container([^"]*)">\s*<ul class="wp-block-page-list">#',
+		'<ul class="wp-block-navigation__container$1 wp-block-page-list">',
+		$content,
+		1,
+		$count
+	);
+
+	if ( 1 !== $count ) {
+		return $content;
+	}
+
+	$closed = preg_replace( '#</ul>\s*</ul>#', '</ul>', $opened, 1, $count );
+
+	return 1 === $count ? $closed : $content;
+}
+add_filter( 'render_block_core/navigation', __NAMESPACE__ . '\\unwrap_page_list_in_navigation' );

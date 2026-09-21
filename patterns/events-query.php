@@ -20,7 +20,7 @@
 
 		<!-- wp:post-date /-->
 
-		<!-- wp:post-title {"level":3,"isLink":true,"fontSize":"l"} /-->
+		<!-- wp:post-title {"level":2,"isLink":true,"fontSize":"l"} /-->
 
 		<!-- wp:post-excerpt {"moreText":"<?php echo esc_attr_x( 'More info', 'Post excerpt link text.', 'loam' ); ?>","excerptLength":20,"fontSize":"s"} /-->
 	</div>

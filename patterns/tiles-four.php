@@ -4,7 +4,7 @@
  * Slug: loam/tiles-four
  * Categories: featured, columns
  * Viewport Width: 1400
- * Description: Four tall linked image tiles, each with a one-word label. A row of signposts to the main sections.
+ * Description: Four tall image tiles, each with a linked one-word label. A row of signposts to the main sections.
  *
  * @package loam
  */
@@ -35,8 +35,8 @@ $loam_tiles = array(
 		<?php foreach ( $loam_tiles as $loam_tile ) : ?>
 		<!-- wp:column -->
 		<div class="wp-block-column">
-			<!-- wp:image {"sizeSlug":"large","linkDestination":"custom","aspectRatio":"4/5","scale":"cover"} -->
-			<figure class="wp-block-image size-large"><a href="#"><img src="<?php echo esc_url( $loam_tile['image'] ); ?>" alt="" style="aspect-ratio:4/5;object-fit:cover"/></a></figure>
+			<!-- wp:image {"sizeSlug":"large","aspectRatio":"4/5","scale":"cover"} -->
+			<figure class="wp-block-image size-large"><img src="<?php echo esc_url( $loam_tile['image'] ); ?>" alt="" style="aspect-ratio:4/5;object-fit:cover"/></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:heading {"level":2,"fontSize":"m","style":{"spacing":{"margin":{"top":"var:preset|spacing|s"}}}} -->

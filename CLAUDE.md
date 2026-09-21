@@ -45,6 +45,7 @@ npm run format:check   # Check formatting without writing
 # Utilities
 npm run validate:blocks # Parse patterns/templates/parts with the core block registry; fails on any block that would enter recovery mode or be rewritten
 npm run check:contrast  # Check theme.json and every styles/colors preset against the contrast table in docs/design-notes.md
+npm run check:a11y      # axe-core over every template of the running site at desktop and phone widths, phone pass with the menu open; fails on any WCAG 2.1 A/AA violation. Pass a base URL (default wp-env); CI runs it on every push (.github/workflows/a11y.yml)
 npm run patterns:flush  # Clear the theme pattern cache (a site transient) so new pattern files register
 npm run screenshot     # Capture screenshot.png (1200x900) of the local site (Puppeteer)
 npm run packages-update # Update @wordpress/* packages

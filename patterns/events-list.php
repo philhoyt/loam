@@ -49,8 +49,8 @@ $loam_events = array(
 		<?php foreach ( $loam_events as $loam_event ) : ?>
 		<!-- wp:column {"style":{"spacing":{"blockGap":"var:preset|spacing|xs"}}} -->
 		<div class="wp-block-column">
-			<!-- wp:image {"sizeSlug":"large","linkDestination":"custom","aspectRatio":"4/3","scale":"cover","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|s"}}}} -->
-			<figure class="wp-block-image size-large" style="margin-bottom:var(--wp--preset--spacing--s)"><a href="#"><img src="<?php echo esc_url( $loam_event['image'] ); ?>" alt="" style="aspect-ratio:4/3;object-fit:cover"/></a></figure>
+			<!-- wp:image {"sizeSlug":"large","aspectRatio":"4/3","scale":"cover","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|s"}}}} -->
+			<figure class="wp-block-image size-large" style="margin-bottom:var(--wp--preset--spacing--s)"><img src="<?php echo esc_url( $loam_event['image'] ); ?>" alt="" style="aspect-ratio:4/3;object-fit:cover"/></figure>
 			<!-- /wp:image -->
 
 			<!-- wp:paragraph {"fontSize":"xs","style":{"typography":{"fontWeight":"700","letterSpacing":"0.1em","textTransform":"uppercase"}}} -->

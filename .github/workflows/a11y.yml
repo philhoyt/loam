@@ -1,0 +1,48 @@
+# Runs axe-core against every template on a wp-env site loaded with the demo
+# content (bin/check-a11y.js). Fails on any WCAG 2.1 A/AA violation.
+name: Accessibility
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  axe:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install JS dependencies
+        run: npm ci
+
+      - name: Build assets
+        run: npm run build
+
+      - name: Start WordPress
+        run: npx wp-env start
+
+      # Mirror _playground/blueprint.json: pretty permalinks, the demo pages,
+      # the Home page on the front and no Sample Page.
+      - name: Load demo content
+        run: |
+          npx wp-env run cli wp option update permalink_structure '/%postname%/'
+          npx wp-env run cli wp plugin install wordpress-importer --activate
+          npx wp-env run cli wp import wp-content/themes/loam/_playground/demo.xml --authors=create
+          HOME_ID=$(npx wp-env run cli wp post list --post_type=page --name=home --field=ID | tr -d '\r')
+          npx wp-env run cli wp option update show_on_front page
+          npx wp-env run cli wp option update page_on_front "$HOME_ID"
+          SAMPLE_ID=$(npx wp-env run cli wp post list --post_type=page --name=sample-page --field=ID | tr -d '\r')
+          [ -n "$SAMPLE_ID" ] && npx wp-env run cli wp post delete "$SAMPLE_ID" --force
+          npx wp-env run cli wp rewrite flush
+
+      - name: Check accessibility
+        run: npm run check:a11y

@@ -71,6 +71,12 @@ repair them from the Site Editor, which inlines the pattern and breaks translati
 `npm run check:contrast` checks every colour preset against the contrast pairs the
 bands rely on; `npm run patterns:flush` registers new pattern files on the dev site.
 
+`npm run check:a11y` runs axe-core over every template of the running site (pass a base
+URL; the default is the wp-env site) at a desktop and a phone width, with the phone
+menu open, and fails on any WCAG 2.1 A/AA violation. It runs on every push in CI
+against the demo content. Findings it cannot decide on its own are listed for a manual
+pass with a keyboard and a screen reader.
+
 ## Releases
 
 Bump `Version:` in `style.css`, `version` in `package.json` and `Stable tag` in
