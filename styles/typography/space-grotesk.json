@@ -1,0 +1,66 @@
+{
+  "$schema": "https://schemas.wp.org/wp/7.1/theme.json",
+  "version": 3,
+  "title": "Space Grotesk",
+  "settings": {
+    "typography": {
+      "fontFamilies": [
+        {
+          "fontFamily": "'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+          "name": "Space Grotesk",
+          "slug": "display",
+          "fontFace": [
+            {
+              "fontFamily": "Space Grotesk",
+              "fontStyle": "normal",
+              "fontWeight": "300 700",
+              "fontDisplay": "swap",
+              "src": ["file:./assets/fonts/space-grotesk/space-grotesk-normal.woff2"]
+            }
+          ]
+        },
+        {
+          "fontFamily": "'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+          "name": "Space Grotesk",
+          "slug": "body",
+          "fontFace": [
+            {
+              "fontFamily": "Space Grotesk",
+              "fontStyle": "normal",
+              "fontWeight": "300 700",
+              "fontDisplay": "swap",
+              "src": ["file:./assets/fonts/space-grotesk/space-grotesk-normal.woff2"]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "styles": {
+    "elements": {
+      "heading": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--display)",
+          "fontWeight": "700",
+          "letterSpacing": "-0.02em",
+          "lineHeight": "1.05",
+          "textTransform": "none"
+        }
+      }
+    },
+    "blocks": {
+      "core/site-title": {
+        "typography": {
+          "fontWeight": "700",
+          "textTransform": "uppercase"
+        }
+      },
+      "core/post-title": {
+        "typography": {
+          "fontWeight": "700",
+          "textTransform": "none"
+        }
+      }
+    }
+  }
+}

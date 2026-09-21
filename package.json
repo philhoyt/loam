@@ -19,7 +19,8 @@
     "packages-update": "wp-scripts packages-update",
     "screenshot": "node bin/screenshot.js",
     "validate:blocks": "node bin/validate-blocks.js",
-    "patterns:flush": "bin/wp.sh eval \"\\$t = wp_get_theme(); \\$m = new ReflectionMethod( \\$t, 'delete_pattern_cache' ); \\$m->setAccessible( true ); \\$m->invoke( \\$t ); echo count( \\$t->get_block_patterns() ), \\\" patterns registered\\\\n\\\";\""
+    "patterns:flush": "bin/wp.sh eval \"\\$t = wp_get_theme(); \\$m = new ReflectionMethod( \\$t, 'delete_pattern_cache' ); \\$m->setAccessible( true ); \\$m->invoke( \\$t ); echo count( \\$t->get_block_patterns() ), \\\" patterns registered\\\\n\\\";\"",
+    "check:contrast": "node bin/check-contrast.js"
   },
   "overrides": {
     "@sentry/node": {
