@@ -46,3 +46,14 @@ jobs:
 
       - name: Check accessibility
         run: npm run check:a11y
+
+      - name: Show what rendered
+        if: failure()
+        run: |
+          npx wp-env run cli wp core version
+          npx wp-env run cli wp theme list --status=active --fields=name,version
+          npx wp-env run cli wp option get page_on_front
+          echo "--- headings on / ---"
+          curl -s http://localhost:8894/ | grep -o '<h[1-3][^>]*>[^<]*' | head -8
+          echo "--- navigation on / ---"
+          curl -s http://localhost:8894/ | grep -o '<nav[^>]*>.\{0,900\}' | head -1
