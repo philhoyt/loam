@@ -177,3 +177,60 @@ $top-item: ".wp-block-navigation .wp-block-navigation__container > .wp-block-nav
 		transition: none;
 	}
 }
+
+// ------------------------------------------------------------ toggle buttons
+//
+// Core draws the open and close toggles as inline SVGs with 1.5px strokes,
+// which look thin next to a heavy display face. Hide the SVG and draw the bars
+// with the button's own colour instead: the open toggle is three bars from a
+// repeating gradient, the close toggle two rotated bars from pseudo-elements.
+// Sizes come from `settings.custom.navigation.toggle` in theme.json.
+.wp-block-navigation__responsive-container-open,
+.wp-block-navigation__responsive-container-close {
+	display: grid;
+	place-items: center;
+	inline-size: 44px;
+	block-size: 44px;
+	padding: 0;
+
+	svg {
+		display: none;
+	}
+}
+
+.wp-block-navigation__responsive-container-open:not(.always-shown) {
+	@media (width >= 600px) {
+		display: none;
+	}
+}
+
+.wp-block-navigation__responsive-container-open::before {
+	content: "";
+	inline-size: var(--wp--custom--navigation--toggle--width);
+	block-size: calc(3 * var(--wp--custom--navigation--toggle--bar) + 2 * var(--wp--custom--navigation--toggle--gap));
+	background: repeating-linear-gradient(
+		to bottom,
+		currentcolor 0 var(--wp--custom--navigation--toggle--bar),
+		transparent var(--wp--custom--navigation--toggle--bar) calc(var(--wp--custom--navigation--toggle--bar) + var(--wp--custom--navigation--toggle--gap))
+	);
+}
+
+// Core positions the open dialog's close button absolutely (top right), so the
+// bars only need to be positioned against the button itself.
+.wp-block-navigation__responsive-container-close {
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		inset-block-start: 50%;
+		inset-inline-start: 50%;
+		inline-size: var(--wp--custom--navigation--toggle--width);
+		block-size: var(--wp--custom--navigation--toggle--bar);
+		background-color: currentcolor;
+		transform: translate(-50%, -50%) rotate(45deg);
+	}
+
+	&::after {
+		transform: translate(-50%, -50%) rotate(-45deg);
+	}
+}

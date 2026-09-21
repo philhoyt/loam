@@ -112,6 +112,11 @@
         },
         "underline": {
           "height": "3px"
+        },
+        "toggle": {
+          "width": "28px",
+          "bar": "4px",
+          "gap": "5px"
         }
       },
       "outline": {

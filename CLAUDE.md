@@ -168,6 +168,8 @@ All values come from `settings.custom.navigation` in `theme.json`
 (`--wp--custom--navigation--submenu--*`); it draws no indicator and sets no hover
 colours, so styling layers on top rather than undoing anything.
 
+The mobile open/close toggles are drawn by the module rather than core's thin SVGs: three bars from a `repeating-linear-gradient` and two rotated bars, sized by `settings.custom.navigation.toggle` (`width`, `bar`, `gap`) so they match the display face. Core keeps positioning the close button; do not give it `position: relative`.
+
 Three core-markup traps, documented at the top of the module: `__container` is not a
 direct child of `.wp-block-navigation`; the open overlay inherits the bar's
 `items-justified-*` alignment and needs the three `--navigation-layout-*` custom
