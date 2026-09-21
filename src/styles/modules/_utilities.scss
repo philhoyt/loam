@@ -19,3 +19,12 @@
 .wp-block-columns.is-reversed {
 	flex-direction: row-reverse;
 }
+
+// Four tiles become a 2x2 grid on small screens instead of one tall column.
+// Core stacks columns below 782px by giving each 100%; two-up needs the row
+// gap to keep flowing, so the width comes off the same gap value.
+@media (width <= 781px) {
+	.wp-block-columns.is-tile-grid:not(.is-not-stacked-on-mobile) > .wp-block-column {
+		flex-basis: calc(50% - var(--wp--preset--spacing--m) / 2) !important;
+	}
+}

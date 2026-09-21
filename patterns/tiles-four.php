@@ -30,8 +30,8 @@ $loam_tiles = array(
 ?>
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"var:preset|spacing|xl"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:var(--wp--preset--spacing--xl)">
-	<!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|l","left":"var:preset|spacing|m"}}}} -->
-	<div class="wp-block-columns alignwide">
+	<!-- wp:columns {"align":"wide","className":"is-tile-grid","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|l","left":"var:preset|spacing|m"}}}} -->
+	<div class="wp-block-columns alignwide is-tile-grid">
 		<?php foreach ( $loam_tiles as $loam_tile ) : ?>
 		<!-- wp:column -->
 		<div class="wp-block-column">

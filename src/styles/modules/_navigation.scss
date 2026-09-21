@@ -114,10 +114,15 @@ $top-item: ".wp-block-navigation .wp-block-navigation__container > .wp-block-nav
 	// ------------------------------------------------------------ mobile overlay
 	//
 	// Core marks the open overlay's background and padding `!important`, so those
-	// two need the same weight to land.
+	// two need the same weight to land. The background is only a fallback: when
+	// the block sets an overlay colour it adds `has-background` plus a preset
+	// class, and that must win (the header pattern uses `primary`).
 	.wp-block-navigation__responsive-container.is-menu-open {
-		background-color: var(--wp--preset--color--base) !important;
-		padding: var(--wp--preset--spacing--xl) var(--wp--preset--spacing--m) !important;
+		padding: var(--wp--preset--spacing--xl) var(--wp--custom--gutter--inline) !important;
+
+		&:not(.has-background) {
+			background-color: var(--wp--preset--color--base) !important;
+		}
 	}
 
 	// The header justifies the bar to the right, which core carries into the
