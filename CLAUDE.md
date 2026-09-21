@@ -20,10 +20,11 @@ Derived from the `wp-sets` Site Editor theme scaffold; the architecture below is
 ## Commands
 
 ```bash
-# Environment (wp-env, Docker)
-npx wp-env start       # http://localhost:8894 (tests site :8895), admin / password
-npx wp-env stop
-bin/wp.sh <args>       # WP-CLI inside the wp-env CLI container, e.g. bin/wp.sh cache flush
+# Environment
+# Primary: the Local site `loam` (http://loam.local, theme symlinked into it).
+# Fallback: wp-env, http://localhost:8894 (tests site :8895), admin / password.
+npx wp-env start / stop
+bin/wp.sh <args>       # WP-CLI against loam.local when its socket symlink is reachable, else the wp-env CLI container
 
 # Development
 npm run start          # Dev server with hot reload
