@@ -4,7 +4,7 @@
  * Slug: loam/faq
  * Categories: text, about
  * Viewport Width: 1400
- * Description: A heading and a stack of expandable questions and answers.
+ * Description: A heading and a stack of expandable questions and answers, one open at a time.
  *
  * @package loam
  */
@@ -34,16 +34,22 @@ $loam_faqs = array(
 	<h2 class="wp-block-heading"><?php esc_html_e( 'Good to know', 'loam' ); ?></h2>
 	<!-- /wp:heading -->
 
-	<!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"default"}} -->
-	<div class="wp-block-group">
+	<!-- wp:accordion {"autoclose":true} -->
+	<div role="group" class="wp-block-accordion">
 		<?php foreach ( $loam_faqs as $loam_faq ) : ?>
-		<!-- wp:details -->
-		<details class="wp-block-details"><summary><?php echo esc_html( $loam_faq[0] ); ?></summary><!-- wp:paragraph -->
+		<!-- wp:accordion-item -->
+		<div class="wp-block-accordion-item"><!-- wp:accordion-heading {"level":3} -->
+		<h3 class="wp-block-accordion-heading has-icon has-icon-right"><button type="button" class="wp-block-accordion-heading__toggle"><span class="wp-block-accordion-heading__toggle-title"><?php echo esc_html( $loam_faq[0] ); ?></span><span class="wp-block-accordion-heading__toggle-icon" aria-hidden="true">+</span></button></h3>
+		<!-- /wp:accordion-heading -->
+
+		<!-- wp:accordion-panel -->
+		<div role="region" class="wp-block-accordion-panel"><!-- wp:paragraph -->
 		<p><?php echo esc_html( $loam_faq[1] ); ?></p>
-		<!-- /wp:paragraph --></details>
-		<!-- /wp:details -->
+		<!-- /wp:paragraph --></div>
+		<!-- /wp:accordion-panel --></div>
+		<!-- /wp:accordion-item -->
 		<?php endforeach; ?>
 	</div>
-	<!-- /wp:group -->
+	<!-- /wp:accordion -->
 </div>
 <!-- /wp:group -->

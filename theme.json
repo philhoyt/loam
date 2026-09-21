@@ -742,6 +742,60 @@
       },
       "core/site-logo": {
         "css": "& img { max-height: 3.5rem; width: auto; }"
+      },
+      "core/accordion": {
+        "spacing": {
+          "blockGap": "0"
+        },
+        "border": {
+          "bottom": {
+            "color": "var(--wp--preset--color--contrast)",
+            "style": "solid",
+            "width": "2px"
+          }
+        }
+      },
+      "core/accordion-item": {
+        "border": {
+          "top": {
+            "color": "var(--wp--preset--color--contrast)",
+            "style": "solid",
+            "width": "2px"
+          }
+        },
+        "spacing": {
+          "blockGap": "0"
+        }
+      },
+      "core/accordion-heading": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--font-family--display)",
+          "fontSize": "var(--wp--preset--font-size--m)",
+          "fontWeight": "700",
+          "letterSpacing": "0",
+          "lineHeight": "1.2",
+          "textTransform": "uppercase"
+        },
+        "spacing": {
+          "padding": {
+            "top": "var(--wp--preset--spacing--s)",
+            "right": "0",
+            "bottom": "var(--wp--preset--spacing--s)",
+            "left": "0"
+          }
+        },
+        "css": "& .wp-block-accordion-heading__toggle { gap: var(--wp--preset--spacing--m); text-align: start; } & .wp-block-accordion-heading__toggle-icon { color: var(--wp--preset--color--primary); font-weight: 400; } & .wp-block-accordion-heading__toggle:hover .wp-block-accordion-heading__toggle-title { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.15em; text-decoration-color: var(--wp--preset--color--primary); }"
+      },
+      "core/accordion-panel": {
+        "spacing": {
+          "padding": {
+            "top": "0",
+            "right": "0",
+            "bottom": "var(--wp--preset--spacing--m)",
+            "left": "0"
+          }
+        },
+        "css": "& > * { margin-block: 0.75rem 0; } & > :first-child { margin-block-start: 0; }"
       }
     },
     "color": {

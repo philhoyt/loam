@@ -9,7 +9,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 | Name / slug / text domain | Loam / `loam` / `loam`                                                                                                              |
 | PHP namespace             | `Loam\Setup`                                                                                                                        |
 | Pattern namespace         | `loam/…`                                                                                                                            |
-| Requires                  | WordPress 6.7, PHP 8.2                                                                                                              |
+| Requires                  | WordPress 6.9 (core Accordion block), PHP 8.2                                                                                       |
 | Tested up to              | 7.1 (`theme.json` `$schema` is pinned to `wp/7.1`; both move together)                                                              |
 | Version                   | `style.css` `Version:` is canonical; `package.json` `version` and `readme.txt` `Stable tag` must match it                           |
 | Repository                | https://github.com/philhoyt/loam                                                                                                    |
@@ -127,7 +127,9 @@ Fonts: **`display`** (Unbounded, variable 200-900) for headings, site title and 
 
 Colour presets in `styles/colors/` (Summer = the theme.json default, Spring, Autumn, Winter) keep the same slugs; `npm run check:contrast` must pass for every one. Typography presets in `styles/typography/` redefine the `display`/`body` slugs. Section styles in `styles/blocks/` (`section-accent`, `section-contrast`, `section-tint`) restyle a Group, Columns, Column or Cover and everything inside it; patterns use those classes instead of per-block colours. Covers use `overlayColor: "secondary"` because the overlay is an attribute, not a style.
 
-Radius comes from `--wp--custom--radius--small`, not the `border-radius` presets: those presets are emitted on 7.1 but not on the 6.7 minimum.
+Radius comes from `--wp--custom--radius--small`, not the `border-radius` presets, so it does not depend on the preset support of whichever WordPress version is running.
+
+The FAQ pattern uses the core Accordion blocks (`core/accordion` → `accordion-item` → `accordion-heading` + `accordion-panel`, WordPress 6.9+), styled in `theme.json` under `styles.blocks`. Hand-written accordion markup is easiest to get right by serialising it from the registry (`createBlock` + `serialize` under jsdom, the way `bin/validate-blocks.js` boots it) and then validating.
 
 Placeholder artwork in `assets/images/*.svg` is generated geometric art, CC0, referenced from patterns with `get_theme_file_uri()`. Never resolve images from the media library inside a pattern.
 

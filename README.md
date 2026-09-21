@@ -13,7 +13,7 @@ PHP patterns under `patterns/`, so user-facing strings are translatable. Page st
 
 ## Requirements
 
-- WordPress 6.7 or later
+- WordPress 6.9 or later
 - PHP 8.2 or later
 - Node.js 22 and Composer for development
 
