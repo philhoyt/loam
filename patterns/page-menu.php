@@ -12,8 +12,8 @@
  */
 
 ?>
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"0","bottom":"0"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull" style="padding-top:0;padding-bottom:0">
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|xl","bottom":"0"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull" style="padding-top:var(--wp--preset--spacing--xl);padding-bottom:0">
 	<!-- wp:paragraph {"fontSize":"l"} -->
 	<p class="has-l-font-size"><?php echo esc_html_x( 'Kitchen open until an hour before close. Ask about allergens; most things can be made without.', 'Menu page intro placeholder', 'loam' ); ?></p>
 	<!-- /wp:paragraph -->
