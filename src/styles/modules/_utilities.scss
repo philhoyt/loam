@@ -12,3 +12,10 @@
 	content: "·";
 	padding-inline: 0.5em;
 }
+
+// Mirrors a Columns block so the image sits on the right. `row-reverse` keeps
+// the stacking order on small screens because core wraps the columns onto new
+// lines rather than changing the direction.
+.wp-block-columns.is-reversed {
+	flex-direction: row-reverse;
+}
