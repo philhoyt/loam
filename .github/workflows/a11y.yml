@@ -30,10 +30,14 @@ jobs:
       - name: Start WordPress
         run: npx wp-env start
 
-      # Mirror _playground/blueprint.json: pretty permalinks, the demo pages,
-      # the Home page on the front and no Sample Page.
+      # Mirror _playground/blueprint.json: the theme active, pretty permalinks,
+      # the demo pages, the Home page on the front and no Sample Page. wp-env
+      # mounts the theme but does not reliably activate it on a fresh site.
       - name: Load demo content
         run: |
+          npx wp-env run cli wp theme activate loam
+          npx wp-env run cli wp option update blogname 'Loam'
+          npx wp-env run cli wp option update blogdescription 'Bowling, bands and late nights'
           npx wp-env run cli wp option update permalink_structure '/%postname%/'
           npx wp-env run cli wp plugin install wordpress-importer --activate
           npx wp-env run cli wp import wp-content/themes/loam/_playground/demo.xml --authors=create
