@@ -98,3 +98,40 @@ function add_editor_styles() {
 	add_editor_style( 'dist/css/editor.css' );
 }
 add_action( 'after_setup_theme', __NAMESPACE__ . '\\add_editor_styles' );
+
+/**
+ * Register the pattern category used by the full-page starter patterns.
+ *
+ * Section styles live in styles/blocks/*.json and need no registration.
+ *
+ * @since 0.1.0
+ * @return void
+ */
+function register_pattern_categories() {
+	register_block_pattern_category(
+		'loam_page',
+		array(
+			'label'       => _x( 'Pages', 'Block pattern category', 'loam' ),
+			'description' => __( 'Full page layouts: home, about, events and contact.', 'loam' ),
+		)
+	);
+}
+add_action( 'init', __NAMESPACE__ . '\\register_pattern_categories' );
+
+/**
+ * Register block styles that need real CSS rather than theme.json properties.
+ *
+ * @since 0.1.0
+ * @return void
+ */
+function register_block_styles() {
+	register_block_style(
+		'core/list',
+		array(
+			'name'         => 'plain-list',
+			'label'        => __( 'Plain', 'loam' ),
+			'inline_style' => '.wp-block-list.is-style-plain-list { list-style: none; padding-inline-start: 0; }',
+		)
+	);
+}
+add_action( 'init', __NAMESPACE__ . '\\register_block_styles' );

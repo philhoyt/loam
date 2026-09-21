@@ -42,8 +42,10 @@ Thumbs.db
 # Composer
 /vendor
 
-# Compiled Files
-/dist
+# dist/ is committed on purpose: the theme directory zip, GitHub installs and
+# Playground have no build step. Only the 0-byte JS stubs wp-scripts writes
+# beside CSS-only entries are ignored.
+/dist/css/*.js
 .windsurfrules
 
 # Local audit/scope plans (not for commit)

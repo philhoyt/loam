@@ -1,0 +1,38 @@
+//
+// Module: sections.
+//
+// Pages built with this theme are a stack of full-bleed bands (covers and
+// groups). Give every band a shared vertical rhythm, while letting any inline
+// padding a band already carries win (`:where()` keeps specificity at 0, and
+// inline styles beat it).
+//
+
+@use "../tools/context";
+
+@include context.is(front) {
+	// Bands live either directly in `main` (template regions) or inside the
+	// page's content block.
+	:where(main.wp-block-group, .wp-block-post-content) > :where(.wp-block-group.alignfull, .wp-block-cover.alignfull) {
+		padding-block: var(--wp--custom--section-padding--block);
+	}
+
+	// Bands sit flush against each other, so drop the stacking gap between them.
+	:where(main.wp-block-group, .wp-block-post-content) > .alignfull + .alignfull {
+		margin-block-start: 0;
+	}
+}
+
+// Shared between the front-end and the editor.
+
+// Headings inside a photo band need a shadow to stay legible over busy images.
+.wp-block-cover :where(h1, h2, h3) {
+	text-shadow: 0 2px 4px rgb(0 0 0 / 40%);
+}
+
+// The page header cover pulls in the featured image. When a page has none, core
+// still renders the translucent overlay over the page background, which washes
+// the band out; make the overlay solid so the title stays on `secondary`.
+/* stylelint-disable-next-line selector-class-pattern -- core block classes. */
+.wp-block-cover.is-page-header:not(:has(> .wp-block-cover__image-background, > .wp-block-cover__video-background)) > .wp-block-cover__background {
+	opacity: 1;
+}

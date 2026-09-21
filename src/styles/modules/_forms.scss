@@ -25,17 +25,22 @@ input:where([type="email"], [type="number"], [type="password"], [type="search"],
 // such as WooCommerce's mini-cart toggle, wins over this fallback. The nav
 // block's toggles are excluded because they are icon buttons.
 :where(button:not(.wp-block-navigation__responsive-container-open, .wp-block-navigation__responsive-container-close), input[type="button"], input[type="submit"], input[type="reset"]) {
-	color: var(--wp--preset--color--base);
-	background-color: var(--wp--preset--color--contrast);
+	color: var(--wp--preset--color--contrast);
+	background-color: var(--wp--preset--color--primary);
+	border-radius: var(--wp--custom--radius--small);
 	padding-top: var(--wp--preset--spacing--xs);
 	padding-right: var(--wp--preset--spacing--m);
 	padding-bottom: var(--wp--preset--spacing--xs);
 	padding-left: var(--wp--preset--spacing--m);
-	font-size: var(--wp--preset--font-size--m);
-	font-weight: 600;
+	font-family: var(--wp--preset--font-family--body);
+	font-size: var(--wp--preset--font-size--s);
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	line-height: var(--wp--custom--line-height--small);
+	text-transform: uppercase;
 
 	&:where(:hover, :focus) {
-		background-color: var(--wp--preset--color--contrast-dark);
+		background-color: var(--wp--preset--color--contrast);
 		color: var(--wp--preset--color--base);
 	}
 
@@ -44,7 +49,7 @@ input:where([type="email"], [type="number"], [type="password"], [type="search"],
 		outline-offset: var(--wp--custom--outline--offset);
 	}
 
-	&:where(:focus:not(:focus-visible)) {
+	&:focus:not(:focus-visible) {
 		outline: none !important;
 	}
 }

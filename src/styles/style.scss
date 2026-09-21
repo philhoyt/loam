@@ -7,11 +7,25 @@
 
 // Import modules.
 @use "modules/site";
+@use "modules/sections";
+@use "modules/buttons";
 @use "modules/forms";
 @use "modules/navigation";
+@use "modules/utilities";
 
 html {
 	scrollbar-gutter: stable;
+}
+
+/*
+* Crossfade between pages. A progressive enhancement: browsers without
+* cross-document view transitions ignore the at-rule, and it only applies to
+* same-origin navigations. Gated on the OS motion preference.
+*/
+@media (prefers-reduced-motion: no-preference) {
+	@view-transition {
+		navigation: auto;
+	}
 }
 
 /*
@@ -19,8 +33,13 @@ html {
 * https://github.com/WordPress/gutenberg/issues/42319
 */
 a {
-	text-decoration-thickness: 1px !important;
-	text-underline-offset: .1em;
+	text-decoration-thickness: 2px !important;
+	text-underline-offset: 0.15em;
+	text-decoration-color: var(--wp--preset--color--primary);
+
+	&:hover {
+		text-decoration-color: currentcolor;
+	}
 
 	&:focus {
 		outline: var(--wp--custom--outline--width) var(--wp--custom--outline--style) var(--wp--preset--color--tertiary);
