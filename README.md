@@ -1,10 +1,15 @@
 # Loam
 
-A block theme with an earthy palette and generous type.
+A block theme for venues, bars, bowling alleys and clubs: heavy uppercase headings,
+chunky buttons, a cream ground with accent-coloured bands, and patterns for upcoming
+events, signpost tiles, a food and drink menu, hours and location, and an FAQ. Four
+seasonal colour presets (Summer, Spring, Autumn, Winter) and three section styles
+restyle every band from Global Styles.
 
 Colors, typography, spacing and layout widths live in `theme.json`. Templates and
 template parts are thin block-markup shells; the block markup that matters lives in
-PHP patterns under `patterns/`, so user-facing strings are translatable.
+PHP patterns under `patterns/`, so user-facing strings are translatable. Page starters
+(Home, About, Events, Menu, Contact) compose the building blocks.
 
 ## Requirements
 
@@ -37,12 +42,20 @@ npm run validate:blocks
 
 Done means the output ends with `All blocks valid.` Fix mismatches in the file; never
 repair them from the Site Editor, which inlines the pattern and breaks translation.
+`npm run check:contrast` checks every colour preset against the contrast pairs the
+bands rely on; `npm run patterns:flush` registers new pattern files on the dev site.
 
 ## Release
 
 Push a `v*` tag that matches `Version:` in `style.css`, `version` in `package.json` and
 `Stable tag` in `readme.txt`. The GitHub Actions workflow builds the assets, zips the
-theme honouring `.distignore` and attaches `loam.zip` to a GitHub release.
+theme honouring `.distignore` and attaches `loam.zip` to a GitHub release. `dist/` is
+committed because neither that zip nor a Theme Directory upload runs a build.
+
+## Credits
+
+Unbounded and Space Grotesk are bundled under the SIL Open Font License; placeholder
+artwork in `assets/images` is CC0. See `readme.txt` for the full copyright section.
 
 ## License
 

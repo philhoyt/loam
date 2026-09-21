@@ -43,7 +43,9 @@ npm run format:check   # Check formatting without writing
 
 # Utilities
 npm run validate:blocks # Parse patterns/templates/parts with the core block registry; fails on any block that would enter recovery mode or be rewritten
-npm run screenshot     # Capture screenshot.png of the local site (Puppeteer)
+npm run check:contrast  # Check theme.json and every styles/colors preset against the contrast table in docs/design-notes.md
+npm run patterns:flush  # Clear the theme pattern cache (a site transient) so new pattern files register
+npm run screenshot     # Capture screenshot.png (1200x900) of the local site (Puppeteer)
 npm run packages-update # Update @wordpress/* packages
 ```
 
@@ -109,9 +111,26 @@ The `_context.scss` mixin controls whether styles apply on the front-end or in t
 }
 ```
 
-### Design tokens
+### Design system
 
-- **Colors/spacing/typography**: defined in `theme.json` (not hardcoded CSS). Palette slugs: `base`, `contrast`, `primary`, `secondary`, `tertiary`, `contrast-dark`, `contrast-medium`, `contrast-light`. `tertiary` is the focus-outline colour in `src/styles`; `contrast-medium` is for separators and captions only (3.3:1 on `base`, below body-text contrast).
+| Token            | Summer (default) | Use                                                                                    |
+| ---------------- | ---------------- | -------------------------------------------------------------------------------------- |
+| `base`           | `#F6EDE2`        | Page ground; text on the dark band and on `contrast-dark`                              |
+| `contrast`       | `#141312`        | Body ink; text and buttons on the accent band; link colour                             |
+| `primary`        | `#EC5038`        | Accent band, filled buttons, link underline. **Never a text colour** (3.1:1 on `base`) |
+| `secondary`      | `#2A211C`        | Dark band, footer, cover overlays, eyebrows                                            |
+| `tertiary`       | `#1E6F78`        | Focus ring, caret                                                                      |
+| `contrast-light` | `#EADFCF`        | Tint band, hairlines, comment bubbles                                                  |
+
+Fonts: **`display`** (Unbounded, variable 200-900) for headings, site title and post titles, always uppercase; **`body`** (Space Grotesk, 300-700) for everything else. Both self-hosted in `assets/fonts/<name>/` with `OFL.txt`, registered via `theme.json` `fontFace`.
+
+Colour presets in `styles/colors/` (Summer = the theme.json default, Spring, Autumn, Winter) keep the same slugs; `npm run check:contrast` must pass for every one. Typography presets in `styles/typography/` redefine the `display`/`body` slugs. Section styles in `styles/blocks/` (`section-accent`, `section-contrast`, `section-tint`) restyle a Group, Columns, Column or Cover and everything inside it; patterns use those classes instead of per-block colours. Covers use `overlayColor: "secondary"` because the overlay is an attribute, not a style.
+
+Radius comes from `--wp--custom--radius--small`, not the `border-radius` presets: those presets are emitted on 7.1 but not on the 6.7 minimum.
+
+Placeholder artwork in `assets/images/*.svg` is generated geometric art, CC0, referenced from patterns with `get_theme_file_uri()`. Never resolve images from the media library inside a pattern.
+
+- **Colors/spacing/typography**: defined in `theme.json` (not hardcoded CSS).
 - **WordPress CSS custom properties**: `--wp--preset--color--*`, `--wp--preset--spacing--*`, `--wp--custom--*`
 - Spacing preset slugs must not contain digits. WordPress kebab-cases slugs when it emits
   custom properties, so a `2xl` slug becomes `--wp--preset--spacing--2-xl` and any
@@ -194,26 +213,36 @@ Templates and template-parts under `templates/` and `parts/` are thin shells; th
 **Naming conventions**
 
 - `header.php` / `footer.php` — site-wide template-part patterns
-- `template-*.php` — full-page or major-region patterns that compose a template (`template-query-loop`)
+- `page-*.php` — full-page starters (`Block Types: core/post-content`, `Post Types: page, wp_template`, category `loam_page`): Home, About, Events, Menu, Contact. They compose the building blocks with `wp:pattern` refs
+- `banner-*.php`, `tiles-four.php`, `events-*.php`, `media-bands.php`, `cta-band.php`, `menu-list.php`, `faq.php`, `hours-location.php`, `social-band.php` — the building blocks, in core categories (`banner`, `featured`, `call-to-action`, `columns`, `text`, `about`, `contact`, `query`)
+- `template-*.php` — major-region patterns that compose a template (`template-query-loop`)
 - `hidden-*.php` — internal building blocks referenced only from templates or other patterns; not shown in the inserter
-- Other names (`comments.php`, `post-navigation.php`, `hero.php`) — reusable building blocks that surface in the inserter
+- Other names (`comments.php`, `post-navigation.php`, `posts-recent.php`) — reusable building blocks that surface in the inserter
 
 ### Translations
 
 User-facing strings live in `patterns/*.php` wrapped in `esc_html__()`, `esc_html_e()`, `esc_html_x()`, or `esc_attr_x()` with the `loam` text domain. To regenerate `languages/loam.pot`:
 
 ```bash
-bin/wp.sh i18n make-pot . languages/loam.pot --include="templates,parts,patterns,inc"
+bin/wp.sh i18n make-pot /var/www/html/wp-content/themes/loam /var/www/html/wp-content/themes/loam/languages/loam.pot --include="templates,parts,patterns,inc,functions.php,theme.json,styles" --domain=loam
 ```
+
+(Paths are container paths because `bin/wp.sh` runs inside wp-env.)
 
 ## Gotchas
 
 Things that are not derivable from the code:
 
 - **Theme patterns are cached against the theme version.** A new file in `patterns/`
-  does not register until `Version:` in `style.css` changes, or you run
-  `bin/wp.sh cache flush` and delete the `wp_theme_files_patterns*` options
-  (`bin/wp.sh option list --search='wp_theme_files_patterns*' --field=option_name | xargs -n1 bin/wp.sh option delete`).
+  does not register until `Version:` in `style.css` changes or the cache is cleared. On
+  WP 7.1 the cache is a _site_ transient that `wp cache flush`, `wp transient delete --all`
+  and `wp option list --search` all miss; `npm run patterns:flush` clears it.
+- **`dimRatio: 50` on a cover emits no `has-background-dim-50` class** (it is the default);
+  every other multiple of ten does. The validator catches it.
+- **Theme Check runs against the installed directory, not the zip.** `CLAUDE.md`,
+  `bin/wp.sh` and the other `.distignore` files trip it on the dev site; stage a copy with
+  `rsync -a --exclude-from=.distignore` (as `.github/workflows/release.yml` does) and check
+  that. Loam passed on 2026-09-21.
 - **Site Editor customisations override theme files.** If the dev site does not match
   `templates/` or `parts/`, check
   `bin/wp.sh post list --post_type=wp_template,wp_template_part`. `wp_template` posts

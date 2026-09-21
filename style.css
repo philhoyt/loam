@@ -2,8 +2,8 @@
 Theme Name: Loam
 Theme URI: https://github.com/philhoyt/loam
 Author: philhoyt
-Author URI: https://github.com/philhoyt
-Description: A block theme with an earthy palette and generous type.
+Author URI: https://philhoyt.com/
+Description: A block theme for venues, bars, bowling alleys and clubs. Heavy uppercase headings, chunky buttons, a cream ground with accent-coloured bands, and patterns for upcoming events, four signpost tiles, a food and drink menu, hours and location, and an FAQ. Four seasonal colour presets and three section styles restyle every band from Global Styles.
 Version: 0.1.0
 Requires at least: 6.7
 Tested up to: 7.1
@@ -11,5 +11,5 @@ Requires PHP: 8.2
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: loam
-Tags: full-site-editing, block-patterns
+Tags: one-column, wide-blocks, block-patterns, block-styles, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, rtl-language-support, style-variations, threaded-comments, translation-ready, entertainment, food-and-drink
 */

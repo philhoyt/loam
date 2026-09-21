@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-21T19:07:29+00:00\n"
+"POT-Creation-Date: 2026-09-21T19:45:50+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: loam\n"
@@ -26,7 +26,7 @@ msgstr ""
 
 #. Description of the theme
 #: style.css
-msgid "A block theme with an earthy palette and generous type."
+msgid "A block theme for venues, bars, bowling alleys and clubs. Heavy uppercase headings, chunky buttons, a cream ground with accent-coloured bands, and patterns for upcoming events, four signpost tiles, a food and drink menu, hours and location, and an FAQ. Four seasonal colour presets and three section styles restyle every band from Global Styles."
 msgstr ""
 
 #. Author of the theme
@@ -36,7 +36,75 @@ msgstr ""
 
 #. Author URI of the theme
 #: style.css
-msgid "https://github.com/philhoyt"
+msgid "https://philhoyt.com/"
+msgstr ""
+
+#: inc/setup.php:114
+msgctxt "Block pattern category"
+msgid "Pages"
+msgstr ""
+
+#: inc/setup.php:115
+msgid "Full page layouts: home, about, events and contact."
+msgstr ""
+
+#: inc/setup.php:132
+msgid "Plain"
+msgstr ""
+
+#: patterns/banner-cover.php
+msgctxt "Pattern title"
+msgid "Photo band with button"
+msgstr ""
+
+#: patterns/banner-cover.php
+msgctxt "Pattern description"
+msgid "Full-width photo with a colour overlay, a large heading and one button."
+msgstr ""
+
+#: patterns/banner-cover.php:17
+msgctxt "Photo band heading placeholder"
+msgid "View all events"
+msgstr ""
+
+#: patterns/banner-cover.php:23
+msgctxt "Photo band button placeholder"
+msgid "Events"
+msgstr ""
+
+#: patterns/banner-split.php
+msgctxt "Pattern title"
+msgid "Split hero"
+msgstr ""
+
+#: patterns/banner-split.php
+msgctxt "Pattern description"
+msgid "Image on one side, a big heading, a short paragraph and two buttons on the other."
+msgstr ""
+
+#: patterns/banner-split.php:29
+msgctxt "Split hero eyebrow placeholder"
+msgid "Since 1924"
+msgstr ""
+
+#: patterns/banner-split.php:33
+msgctxt "Split hero heading placeholder"
+msgid "Bowling, bands and late nights"
+msgstr ""
+
+#: patterns/banner-split.php:37
+msgctxt "Split hero paragraph placeholder"
+msgid "One sentence about the place and who it is for. Keep it short; the heading and the photo do the work."
+msgstr ""
+
+#: patterns/banner-split.php:43
+msgctxt "Split hero button placeholder"
+msgid "See what&#8217;s on"
+msgstr ""
+
+#: patterns/banner-split.php:47
+msgctxt "Split hero secondary button placeholder"
+msgid "Book a party"
 msgstr ""
 
 #: patterns/comments.php
@@ -46,11 +114,186 @@ msgstr ""
 
 #: patterns/comments.php
 msgctxt "Pattern description"
-msgid "Comments area with comments list, pagination, and comment form."
+msgid "Comment list with a heading, author lines, comment bubbles, pagination and the comment form."
 msgstr ""
 
-#: patterns/comments.php:15
+#: patterns/comments.php:18
 msgid "Comments"
+msgstr ""
+
+#: patterns/cta-band.php
+msgctxt "Pattern title"
+msgid "Call to action band"
+msgstr ""
+
+#: patterns/cta-band.php
+msgctxt "Pattern description"
+msgid "Accent band with a heading, one line of copy and two buttons."
+msgstr ""
+
+#: patterns/cta-band.php:16
+msgctxt "Call to action band heading placeholder"
+msgid "Book your party"
+msgstr ""
+
+#: patterns/cta-band.php:20
+msgctxt "Call to action band paragraph placeholder"
+msgid "Birthdays, work outings, weddings and whatever else needs a room, a bar and a sound system."
+msgstr ""
+
+#: patterns/cta-band.php:26
+msgctxt "Call to action band button placeholder"
+msgid "Start a booking"
+msgstr ""
+
+#: patterns/cta-band.php:30
+msgctxt "Call to action band secondary button placeholder"
+msgid "See the spaces"
+msgstr ""
+
+#: patterns/events-list.php
+msgctxt "Pattern title"
+msgid "Upcoming events"
+msgstr ""
+
+#: patterns/events-list.php
+msgctxt "Pattern description"
+msgid "Accent band with a heading and three event cards: image, date, title, support line and ticket buttons."
+msgstr ""
+
+#: patterns/events-list.php:15
+msgctxt "Event card date placeholder"
+msgid "Fri 3 Oct &middot; 8 pm"
+msgstr ""
+
+#: patterns/events-list.php:16
+msgctxt "Event card title placeholder"
+msgid "The Headliners"
+msgstr ""
+
+#: patterns/events-list.php:17
+msgctxt "Event card support line placeholder"
+msgid "with Opening Act"
+msgstr ""
+
+#: patterns/events-list.php:21
+msgctxt "Event card date placeholder"
+msgid "Sat 4 Oct &middot; 9 pm"
+msgstr ""
+
+#: patterns/events-list.php:22
+msgctxt "Event card title placeholder"
+msgid "Late Night Dance Party"
+msgstr ""
+
+#: patterns/events-list.php:23
+msgctxt "Event card support line placeholder"
+msgid "with resident DJs"
+msgstr ""
+
+#: patterns/events-list.php:27
+msgctxt "Event card date placeholder"
+msgid "Sun 5 Oct &middot; 12 pm"
+msgstr ""
+
+#: patterns/events-list.php:28
+msgctxt "Event card title placeholder"
+msgid "Drag Brunch"
+msgstr ""
+
+#: patterns/events-list.php:29
+msgctxt "Event card support line placeholder"
+msgid "with the house cast"
+msgstr ""
+
+#: patterns/events-list.php:38
+msgid "Upcoming events"
+msgstr ""
+
+#: patterns/events-list.php:42
+msgid "View all events"
+msgstr ""
+
+#: patterns/events-list.php:71
+msgid "Buy tickets"
+msgstr ""
+
+#: patterns/events-list.php:75
+msgid "More info"
+msgstr ""
+
+#: patterns/events-query.php
+msgctxt "Pattern title"
+msgid "Events grid"
+msgstr ""
+
+#: patterns/events-query.php
+msgctxt "Pattern description"
+msgid "Three-column grid of posts with featured image, date, title, excerpt and a read more link. Point it at an events category to make a listing."
+msgstr ""
+
+#: patterns/events-query.php:25
+msgctxt "Post excerpt link text."
+msgid "More info"
+msgstr ""
+
+#: patterns/events-query.php:40
+msgctxt "Events grid, no posts."
+msgid "Nothing scheduled yet. Check back soon."
+msgstr ""
+
+#: patterns/faq.php
+msgctxt "Pattern title"
+msgid "FAQ"
+msgstr ""
+
+#: patterns/faq.php
+msgctxt "Pattern description"
+msgid "A heading and a stack of expandable questions and answers."
+msgstr ""
+
+#: patterns/faq.php:14
+msgctxt "FAQ question placeholder"
+msgid "Do I need a reservation?"
+msgstr ""
+
+#: patterns/faq.php:15
+msgctxt "FAQ answer placeholder"
+msgid "Walk-ins are welcome every day. On Friday and Saturday nights a reservation is the only way to be sure of a lane."
+msgstr ""
+
+#: patterns/faq.php:18
+msgctxt "FAQ question placeholder"
+msgid "Are shows all ages?"
+msgstr ""
+
+#: patterns/faq.php:19
+msgctxt "FAQ answer placeholder"
+msgid "Most are. Each event listing says whether it is all ages, 18+ or 21+."
+msgstr ""
+
+#: patterns/faq.php:22
+msgctxt "FAQ question placeholder"
+msgid "Where do I park?"
+msgstr ""
+
+#: patterns/faq.php:23
+msgctxt "FAQ answer placeholder"
+msgid "There is a free lot behind the building and street parking on the side streets."
+msgstr ""
+
+#: patterns/faq.php:26
+msgctxt "FAQ question placeholder"
+msgid "Can I bring my own cake?"
+msgstr ""
+
+#: patterns/faq.php:27
+msgctxt "FAQ answer placeholder"
+msgid "Yes, for booked parties. Let us know when you book and we will keep it cold until it is time."
+msgstr ""
+
+#: patterns/faq.php:34
+msgid "Good to know"
 msgstr ""
 
 #: patterns/footer.php
@@ -60,7 +303,88 @@ msgstr ""
 
 #: patterns/footer.php
 msgctxt "Pattern description"
-msgid "Site footer with logo, copyright, site title, and navigation."
+msgid "Dark site footer with site title, tagline and social links, a visit column with address and hours, an explore column, and a copyright line."
+msgstr ""
+
+#: patterns/footer.php:27
+#: patterns/social-band.php:25
+msgctxt "social link label"
+msgid "Instagram"
+msgstr ""
+
+#: patterns/footer.php:28
+#: patterns/social-band.php:26
+msgctxt "social link label"
+msgid "Facebook"
+msgstr ""
+
+#: patterns/footer.php:29
+msgctxt "social link label"
+msgid "TikTok"
+msgstr ""
+
+#: patterns/footer.php:38
+msgid "Visit"
+msgstr ""
+
+#: patterns/footer.php:42
+msgctxt "Footer address placeholder, line 1"
+msgid "123 Main Street"
+msgstr ""
+
+#: patterns/footer.php:42
+msgctxt "Footer address placeholder, line 2"
+msgid "Hometown, OH 44107"
+msgstr ""
+
+#: patterns/footer.php:46
+msgctxt "Footer hours placeholder, days"
+msgid "Wednesday to Sunday"
+msgstr ""
+
+#: patterns/footer.php:46
+msgctxt "Footer hours placeholder, times"
+msgid "5 pm to late"
+msgstr ""
+
+#: patterns/footer.php:54
+msgid "Explore"
+msgstr ""
+
+#: patterns/footer.php:60
+msgid "Events"
+msgstr ""
+
+#: patterns/footer.php:64
+msgid "Menus"
+msgstr ""
+
+#: patterns/footer.php:68
+msgid "Book a party"
+msgstr ""
+
+#: patterns/footer.php:72
+msgid "FAQ"
+msgstr ""
+
+#: patterns/footer.php:76
+msgid "Contact"
+msgstr ""
+
+#. translators: 1: current year, 2: site name.
+#: patterns/footer.php:96
+#, php-format
+msgid "&copy; %1$s %2$s"
+msgstr ""
+
+#. translators: %s: WordPress.
+#: patterns/footer.php:109
+#, php-format
+msgid "Proudly powered by %s"
+msgstr ""
+
+#: patterns/footer.php:110
+msgid "https://wordpress.org"
 msgstr ""
 
 #: patterns/header.php
@@ -70,32 +394,7 @@ msgstr ""
 
 #: patterns/header.php
 msgctxt "Pattern description"
-msgid "Site header with site title and navigation."
-msgstr ""
-
-#: patterns/hero.php
-msgctxt "Pattern title"
-msgid "Hero"
-msgstr ""
-
-#: patterns/hero.php
-msgctxt "Pattern description"
-msgid "Full-width banner with a heading, a short paragraph and a button."
-msgstr ""
-
-#: patterns/hero.php:16
-msgctxt "Hero pattern heading placeholder"
-msgid "Grow something here"
-msgstr ""
-
-#: patterns/hero.php:20
-msgctxt "Hero pattern paragraph placeholder"
-msgid "Replace this text with a sentence about what the site is for. Keep it short; the heading does most of the work."
-msgstr ""
-
-#: patterns/hero.php:25
-msgctxt "Hero pattern button label placeholder"
-msgid "Get started"
+msgid "Site header with logo, site title and navigation. On small screens the menu opens as a full-screen accent-coloured overlay."
 msgstr ""
 
 #: patterns/hidden-404.php
@@ -103,14 +402,83 @@ msgctxt "Pattern title"
 msgid "404"
 msgstr ""
 
-#: patterns/hidden-404.php:13
+#: patterns/hidden-404.php:14
 msgctxt "404 error page heading"
 msgid "Page not found"
 msgstr ""
 
-#: patterns/hidden-404.php:17
+#: patterns/hidden-404.php:18
 msgctxt "404 error page body text"
-msgid "The page you are looking for doesn't exist, or it has been moved. Please try searching using the form below."
+msgid "The page you are looking for doesn't exist, or it has been moved. Try searching using the form below."
+msgstr ""
+
+#: patterns/hidden-archive-header.php
+msgctxt "Pattern title"
+msgid "Archive header"
+msgstr ""
+
+#: patterns/hidden-archive-header.php
+msgctxt "Pattern description"
+msgid "Secondary band with the archive title and description."
+msgstr ""
+
+#: patterns/hidden-author-card.php
+msgctxt "Pattern title"
+msgid "Author card"
+msgstr ""
+
+#: patterns/hidden-author-card.php
+msgctxt "Pattern description"
+msgid "Avatar, \"Written by\" line, author name and biography in a tinted card."
+msgstr ""
+
+#: patterns/hidden-author-card.php:19
+msgid "Written by"
+msgstr ""
+
+#: patterns/hidden-home-header.php
+msgctxt "Pattern title"
+msgid "Blog header"
+msgstr ""
+
+#: patterns/hidden-home-header.php
+msgctxt "Pattern description"
+msgid "Secondary band with the posts page title."
+msgstr ""
+
+#: patterns/hidden-home-header.php:14
+msgctxt "Posts page heading"
+msgid "Blog"
+msgstr ""
+
+#: patterns/hidden-page-header.php
+msgctxt "Pattern title"
+msgid "Page header"
+msgstr ""
+
+#: patterns/hidden-page-header.php
+msgctxt "Pattern description"
+msgid "Masthead for pages and posts. Uses the featured image as the cover; falls back to a solid secondary band."
+msgstr ""
+
+#: patterns/hidden-post-header.php
+msgctxt "Pattern title"
+msgid "Post header"
+msgstr ""
+
+#: patterns/hidden-post-header.php
+msgctxt "Pattern description"
+msgid "Masthead for single posts: category eyebrow, title, date and author over the featured image."
+msgstr ""
+
+#: patterns/hidden-search-header.php
+msgctxt "Pattern title"
+msgid "Search header"
+msgstr ""
+
+#: patterns/hidden-search-header.php
+msgctxt "Pattern description"
+msgid "Secondary band with the search results title."
 msgstr ""
 
 #: patterns/hidden-search.php
@@ -125,12 +493,268 @@ msgstr ""
 
 #: patterns/hidden-search.php:11
 msgctxt "Search input placeholder text."
-msgid "Type here..."
+msgid "Type here…"
 msgstr ""
 
 #: patterns/hidden-search.php:11
 msgctxt "Search button text. Verb."
 msgid "Search"
+msgstr ""
+
+#: patterns/hours-location.php
+msgctxt "Pattern title"
+msgid "Hours and location"
+msgstr ""
+
+#: patterns/hours-location.php
+msgctxt "Pattern description"
+msgid "Three columns: opening hours, address with a directions button, and ways to get in touch."
+msgstr ""
+
+#: patterns/hours-location.php:20
+msgid "Hours"
+msgstr ""
+
+#: patterns/hours-location.php:26
+msgctxt "Hours placeholder"
+msgid "Monday and Tuesday: closed"
+msgstr ""
+
+#: patterns/hours-location.php:30
+msgctxt "Hours placeholder"
+msgid "Wednesday to Friday: 5 pm to 1 am"
+msgstr ""
+
+#: patterns/hours-location.php:34
+msgctxt "Hours placeholder"
+msgid "Saturday: noon to 2 am"
+msgstr ""
+
+#: patterns/hours-location.php:38
+msgctxt "Hours placeholder"
+msgid "Sunday: noon to 10 pm"
+msgstr ""
+
+#: patterns/hours-location.php:48
+msgid "Find us"
+msgstr ""
+
+#: patterns/hours-location.php:52
+msgctxt "Address placeholder, line 1"
+msgid "123 Main Street"
+msgstr ""
+
+#: patterns/hours-location.php:52
+msgctxt "Address placeholder, line 2"
+msgid "Hometown, OH 44107"
+msgstr ""
+
+#: patterns/hours-location.php:56
+msgctxt "Parking placeholder"
+msgid "Free lot behind the building. Street parking on the side streets."
+msgstr ""
+
+#: patterns/hours-location.php:62
+msgid "Get directions"
+msgstr ""
+
+#: patterns/hours-location.php:72
+msgid "Get in touch"
+msgstr ""
+
+#: patterns/hours-location.php:76
+msgctxt "Email placeholder"
+msgid "hello@example.com"
+msgstr ""
+
+#: patterns/hours-location.php:76
+msgctxt "Phone placeholder"
+msgid "(555) 555-0123"
+msgstr ""
+
+#: patterns/hours-location.php:80
+msgctxt "Contact note placeholder"
+msgid "For bookings and private events, email is fastest. We answer within a day."
+msgstr ""
+
+#: patterns/media-bands.php
+msgctxt "Pattern title"
+msgid "Alternating media bands"
+msgstr ""
+
+#: patterns/media-bands.php
+msgctxt "Pattern description"
+msgid "Two stacked bands, each an image beside a heading, a paragraph and a button, with the image swapping sides."
+msgstr ""
+
+#: patterns/media-bands.php:15
+msgctxt "Media band heading placeholder"
+msgid "The lanes"
+msgstr ""
+
+#: patterns/media-bands.php:16
+msgctxt "Media band paragraph placeholder"
+msgid "Two or three sentences about this part of the place: what it is, when it is open and what makes it worth the trip."
+msgstr ""
+
+#: patterns/media-bands.php:17
+msgctxt "Media band button placeholder"
+msgid "About us"
+msgstr ""
+
+#: patterns/media-bands.php:21
+msgctxt "Media band heading placeholder"
+msgid "The lounge"
+msgstr ""
+
+#: patterns/media-bands.php:22
+msgctxt "Media band paragraph placeholder"
+msgid "A second section with the same shape. Swap the image, the heading and the copy; the layout mirrors on its own."
+msgstr ""
+
+#: patterns/media-bands.php:23
+msgctxt "Media band button placeholder"
+msgid "Learn more"
+msgstr ""
+
+#: patterns/menu-list.php
+msgctxt "Pattern title"
+msgid "Menu list"
+msgstr ""
+
+#: patterns/menu-list.php
+msgctxt "Pattern description"
+msgid "A food or drink menu: section heading, then two columns of items with a name, a price and a one-line description."
+msgstr ""
+
+#: patterns/menu-list.php:14
+msgctxt "Menu list section heading placeholder"
+msgid "Kitchen"
+msgstr ""
+
+#: patterns/menu-list.php:16
+msgctxt "Menu item placeholder"
+msgid "Smash burger"
+msgstr ""
+
+#: patterns/menu-list.php:16
+msgctxt "Menu item description placeholder"
+msgid "Two patties, American cheese, pickles, house sauce."
+msgstr ""
+
+#: patterns/menu-list.php:17
+msgctxt "Menu item placeholder"
+msgid "Fried chicken sandwich"
+msgstr ""
+
+#: patterns/menu-list.php:17
+msgctxt "Menu item description placeholder"
+msgid "Buttermilk brined, slaw, hot honey."
+msgstr ""
+
+#: patterns/menu-list.php:18
+msgctxt "Menu item placeholder"
+msgid "Loaded fries"
+msgstr ""
+
+#: patterns/menu-list.php:18
+msgctxt "Menu item description placeholder"
+msgid "Cheese sauce, scallions, pickled jalape&ntilde;o."
+msgstr ""
+
+#: patterns/menu-list.php:22
+msgctxt "Menu list section heading placeholder"
+msgid "Bar"
+msgstr ""
+
+#: patterns/menu-list.php:24
+msgctxt "Menu item placeholder"
+msgid "House lager"
+msgstr ""
+
+#: patterns/menu-list.php:24
+msgctxt "Menu item description placeholder"
+msgid "Pint. Ask about the rotating taps."
+msgstr ""
+
+#: patterns/menu-list.php:25
+msgctxt "Menu item placeholder"
+msgid "Lane special"
+msgstr ""
+
+#: patterns/menu-list.php:25
+msgctxt "Menu item description placeholder"
+msgid "Bourbon, ginger, lime, big ice."
+msgstr ""
+
+#: patterns/menu-list.php:26
+msgctxt "Menu item placeholder"
+msgid "Soda & seltzer"
+msgstr ""
+
+#: patterns/menu-list.php:26
+msgctxt "Menu item description placeholder"
+msgid "Free refills."
+msgstr ""
+
+#: patterns/page-about.php
+msgctxt "Pattern title"
+msgid "About"
+msgstr ""
+
+#: patterns/page-about.php
+msgctxt "Pattern description"
+msgid "About page: intro paragraph, two media bands, a call to action band and an FAQ. Use with the \"Page\" template so the page title shows."
+msgstr ""
+
+#: patterns/page-about.php:18
+msgctxt "About page intro placeholder"
+msgid "Founded in 1924 as a dance hall, then a confectionery, then a barbershop, and for the longest stretch of all a bar and bowling alley. Three generations ran it from the apartment upstairs. Tell your own story here in two or three sentences."
+msgstr ""
+
+#: patterns/page-contact.php
+msgctxt "Pattern title"
+msgid "Contact"
+msgstr ""
+
+#: patterns/page-contact.php
+msgctxt "Pattern description"
+msgid "Contact page: hours, address and contact details, an FAQ and a follow band. Use with the \"Page\" template so the page title shows."
+msgstr ""
+
+#: patterns/page-events.php
+msgctxt "Pattern title"
+msgid "Events"
+msgstr ""
+
+#: patterns/page-events.php
+msgctxt "Pattern description"
+msgid "Events page: a grid of posts as listings and a call to action band. Use with the \"Page\" template so the page title shows."
+msgstr ""
+
+#: patterns/page-home.php
+msgctxt "Pattern title"
+msgid "Home"
+msgstr ""
+
+#: patterns/page-home.php
+msgctxt "Pattern description"
+msgid "Home page: split hero, four tiles, upcoming events, a photo band, two media bands and a follow band. Use with the \"Page (No Title)\" template."
+msgstr ""
+
+#: patterns/page-menu.php
+msgctxt "Pattern title"
+msgid "Menu"
+msgstr ""
+
+#: patterns/page-menu.php
+msgctxt "Pattern description"
+msgid "Menu page: a short note, the menu list and hours. Use with the \"Page\" template so the page title shows."
+msgstr ""
+
+#: patterns/page-menu.php:18
+msgctxt "Menu page intro placeholder"
+msgid "Kitchen open until an hour before close. Ask about allergens; most things can be made without."
 msgstr ""
 
 #: patterns/post-navigation.php
@@ -148,6 +772,53 @@ msgstr ""
 msgid "Post navigation"
 msgstr ""
 
+#: patterns/posts-recent.php
+msgctxt "Pattern title"
+msgid "Keep reading"
+msgstr ""
+
+#: patterns/posts-recent.php
+msgctxt "Pattern description"
+msgid "Three most recent posts in a row, each with featured image, title and date. On a single post the current post is left out (WordPress 7.1+)."
+msgstr ""
+
+#: patterns/posts-recent.php:17
+msgid "Keep reading"
+msgstr ""
+
+#: patterns/posts-recent.php:36
+msgctxt "Keep reading pattern, no other posts."
+msgid "Nothing else to read yet."
+msgstr ""
+
+#: patterns/social-band.php
+msgctxt "Pattern title"
+msgid "Follow band"
+msgstr ""
+
+#: patterns/social-band.php
+msgctxt "Pattern description"
+msgid "Quiet tinted band with a heading, one line and large social icons."
+msgstr ""
+
+#: patterns/social-band.php:16
+msgid "Follow along"
+msgstr ""
+
+#: patterns/social-band.php:20
+msgid "Shows, specials and late additions, as they happen."
+msgstr ""
+
+#: patterns/social-band.php:27
+msgctxt "social link label"
+msgid "YouTube"
+msgstr ""
+
+#: patterns/social-band.php:28
+msgctxt "social link label"
+msgid "Email"
+msgstr ""
+
 #: patterns/template-query-loop.php
 msgctxt "Pattern title"
 msgid "Posts list"
@@ -155,10 +826,300 @@ msgstr ""
 
 #: patterns/template-query-loop.php
 msgctxt "Pattern description"
-msgid "Default post list with featured image, title, content, meta, and pagination."
+msgid "Post list with featured image, title, excerpt, meta and pagination."
 msgstr ""
 
-#: patterns/template-query-loop.php:50
+#: patterns/template-query-loop.php:32
+msgctxt "Post excerpt link text."
+msgid "Read more"
+msgstr ""
+
+#: patterns/template-query-loop.php:47
 msgctxt "Message shown when a query returns nothing."
 msgid "No posts were found."
+msgstr ""
+
+#: patterns/tiles-four.php
+msgctxt "Pattern title"
+msgid "Four tiles"
+msgstr ""
+
+#: patterns/tiles-four.php
+msgctxt "Pattern description"
+msgid "Four tall linked image tiles, each with a one-word label. A row of signposts to the main sections."
+msgstr ""
+
+#: patterns/tiles-four.php:15
+msgctxt "Four tiles label placeholder"
+msgid "Reserve a lane"
+msgstr ""
+
+#: patterns/tiles-four.php:19
+msgctxt "Four tiles label placeholder"
+msgid "Food & drink"
+msgstr ""
+
+#: patterns/tiles-four.php:23
+msgctxt "Four tiles label placeholder"
+msgid "Join a league"
+msgstr ""
+
+#: patterns/tiles-four.php:27
+msgctxt "Four tiles label placeholder"
+msgid "Book a party"
+msgstr ""
+
+#: theme.json
+msgctxt "Border radius size name"
+msgid "XS"
+msgstr ""
+
+#: theme.json
+msgctxt "Border radius size name"
+msgid "Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Border radius size name"
+msgid "Medium"
+msgstr ""
+
+#: theme.json
+msgctxt "Border radius size name"
+msgid "Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Border radius size name"
+msgid "XL"
+msgstr ""
+
+#: theme.json
+msgctxt "Border radius size name"
+msgid "2XL"
+msgstr ""
+
+#: theme.json
+msgctxt "Border radius size name"
+msgid "3XL"
+msgstr ""
+
+#: theme.json
+#: styles/colors/autumn.json
+#: styles/colors/spring.json
+#: styles/colors/summer.json
+#: styles/colors/winter.json
+msgctxt "Color name"
+msgid "Base"
+msgstr ""
+
+#: theme.json
+#: styles/colors/autumn.json
+#: styles/colors/spring.json
+#: styles/colors/summer.json
+#: styles/colors/winter.json
+msgctxt "Color name"
+msgid "Contrast"
+msgstr ""
+
+#: theme.json
+#: styles/colors/autumn.json
+#: styles/colors/spring.json
+#: styles/colors/summer.json
+#: styles/colors/winter.json
+msgctxt "Color name"
+msgid "Primary"
+msgstr ""
+
+#: theme.json
+#: styles/colors/autumn.json
+#: styles/colors/spring.json
+#: styles/colors/summer.json
+#: styles/colors/winter.json
+msgctxt "Color name"
+msgid "Secondary"
+msgstr ""
+
+#: theme.json
+#: styles/colors/autumn.json
+#: styles/colors/spring.json
+#: styles/colors/summer.json
+#: styles/colors/winter.json
+msgctxt "Color name"
+msgid "Tertiary"
+msgstr ""
+
+#: theme.json
+#: styles/colors/autumn.json
+#: styles/colors/spring.json
+#: styles/colors/summer.json
+#: styles/colors/winter.json
+msgctxt "Color name"
+msgid "Contrast Dark"
+msgstr ""
+
+#: theme.json
+#: styles/colors/autumn.json
+#: styles/colors/spring.json
+#: styles/colors/summer.json
+#: styles/colors/winter.json
+msgctxt "Color name"
+msgid "Contrast Medium"
+msgstr ""
+
+#: theme.json
+#: styles/colors/autumn.json
+#: styles/colors/spring.json
+#: styles/colors/summer.json
+#: styles/colors/winter.json
+msgctxt "Color name"
+msgid "Contrast Light"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "X-Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "Medium"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "X-Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "2X-Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Space size name"
+msgid "3X-Large"
+msgstr ""
+
+#: theme.json
+#: styles/typography/unbounded-space-grotesk.json
+msgctxt "Font family name"
+msgid "Unbounded"
+msgstr ""
+
+#: theme.json
+#: styles/typography/space-grotesk.json
+#: styles/typography/unbounded-space-grotesk.json
+msgctxt "Font family name"
+msgid "Space Grotesk"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "2X-Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "X-Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Small"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Medium"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "X-Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "2X-Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Font size name"
+msgid "3X-Large"
+msgstr ""
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Page (No Title)"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Header"
+msgstr ""
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Footer"
+msgstr ""
+
+#: styles/blocks/section-accent.json
+msgctxt "Style variation name"
+msgid "Accent band"
+msgstr ""
+
+#: styles/blocks/section-contrast.json
+msgctxt "Style variation name"
+msgid "Dark band"
+msgstr ""
+
+#: styles/blocks/section-tint.json
+msgctxt "Style variation name"
+msgid "Tint band"
+msgstr ""
+
+#: styles/colors/autumn.json
+msgctxt "Style variation name"
+msgid "Autumn"
+msgstr ""
+
+#: styles/colors/spring.json
+msgctxt "Style variation name"
+msgid "Spring"
+msgstr ""
+
+#: styles/colors/summer.json
+msgctxt "Style variation name"
+msgid "Summer"
+msgstr ""
+
+#: styles/colors/winter.json
+msgctxt "Style variation name"
+msgid "Winter"
+msgstr ""
+
+#: styles/typography/space-grotesk.json
+msgctxt "Style variation name"
+msgid "Space Grotesk"
+msgstr ""
+
+#: styles/typography/unbounded-space-grotesk.json
+msgctxt "Style variation name"
+msgid "Unbounded & Space Grotesk"
 msgstr ""
