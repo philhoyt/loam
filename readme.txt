@@ -8,7 +8,7 @@ License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: one-column, wide-blocks, block-patterns, block-styles, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, rtl-language-support, style-variations, threaded-comments, translation-ready, entertainment, food-and-drink
 
-A block theme for venues, bars, bowling alleys and clubs.
+A block theme for venues, bars, bowling alleys and clubs
 
 == Description ==
 
@@ -18,7 +18,7 @@ Loam is built around heavy uppercase headings (Unbounded), a grotesk body face (
 * Home, About, Events, Menu and Contact page starters compose those patterns; pick one from the Pages tab when you add a page.
 * An Events grid Query Loop starter turns a category of posts into a listing.
 * Three section styles (Accent, Dark, Tint) restyle a Group, Columns or Cover and everything inside it from one control.
-* Four colour presets named for the seasons (Summer, Spring, Autumn, Winter) share the same slugs, so switching never breaks saved content, and each one is checked for contrast.
+* Four colour presets named for the seasons (Summer, Spring, Autumn, Winter) share the same slugs, so switching between them keeps saved content intact, and each one is checked against the same contrast table.
 * Two typography presets: Unbounded & Space Grotesk, and an all-Space Grotesk alternative.
 * Pages and posts use the featured image as their masthead; a "Page (No Title)" template is there for pages that start with a hero.
 * The mobile menu opens as a full-screen band in the accent colour.
@@ -43,9 +43,13 @@ Either edit the Upcoming events pattern by hand (three cards with date, title an
 
 The page template uses the page's featured image as the masthead. Set a featured image, or switch the page to the "Page (No Title)" template and start it with the Split hero or Photo band pattern.
 
+= Does Loam need a plugin? =
+
+No. Every pattern is built from core blocks. The Events grid lists posts, so an events plugin is optional; the Booking and Contact starters link to an email address and leave room for the form plugin of your choice.
+
 = How do I change the colours? =
 
-Open the Site Editor, go to Styles and choose a colour preset, or edit the palette. Every band, button and link follows the palette; nothing is hard-coded.
+Open the Site Editor, go to Styles and choose a colour preset, or edit the palette. Every band, button and link follows the palette; the patterns carry no fixed colour values.
 
 == Changelog ==
 
