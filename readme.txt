@@ -3,7 +3,7 @@ Contributors: philhoyt
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 0.9.0
+Stable tag: 0.10.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: one-column, wide-blocks, block-patterns, block-styles, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, rtl-language-support, style-variations, threaded-comments, translation-ready, entertainment, food-and-drink
@@ -52,6 +52,13 @@ No. Every pattern is built from core blocks. The Events grid lists posts, so an 
 Open the Site Editor, go to Styles and choose a colour preset, or edit the palette. Every band, button and link follows the palette; the patterns carry no fixed colour values.
 
 == Changelog ==
+
+= 0.10.0 =
+* Add: Navigation open and close toggles drawn as bold bars to match the display face, sized by theme.json tokens.
+* Add: A WordPress Playground demo with the five page starters, linked from the README.
+* Fix: Page content no longer shows a second block of empty space above the first band and below the last one; bands sit flush against the masthead and the footer.
+* Fix: Accessibility: the page list fallback inside the navigation block renders one list instead of a nested one, tile and event card images are plain images with the heading as the link, and event titles under a page heading use the h2 level. Every template passes an axe-core WCAG 2.1 AA check at desktop and phone widths.
+* Change: Post content gets no automatic edge margins; content that starts or ends with an ordinary block wraps it in a padded group, as the About and Menu starters do.
 
 = 0.9.0 =
 * Add: Summer, Spring, Autumn and Winter colour presets and two typography presets (Unbounded & Space Grotesk, Space Grotesk).

@@ -1,7 +1,7 @@
 {
   "name": "loam",
   "description": "A block theme with an earthy palette and generous type.",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/philhoyt/loam"
