@@ -8,7 +8,7 @@ events, signpost tiles, a food and drink menu, hours and location, and an FAQ. F
 seasonal colour presets (Summer, Spring, Autumn, Winter) and three section styles
 restyle every band from Global Styles.
 
-Colors, typography, spacing and layout widths live in `theme.json`. Templates and
+Colours, typography, spacing and layout widths live in `theme.json`. Templates and
 template parts are thin block-markup shells; the block markup that matters lives in
 PHP patterns under `patterns/`, so user-facing strings are translatable. Page starters
 (Home, About, Events, Menu, Contact) compose the building blocks.
@@ -17,7 +17,9 @@ PHP patterns under `patterns/`, so user-facing strings are translatable. Page st
 
 - WordPress 6.9 or later (the FAQ pattern uses the core Accordion block)
 - PHP 8.2 or later
-- No plugins. Node.js 22 and Composer are needed only for development.
+- No plugins required. WooCommerce is optional: with it active, the theme's store
+  templates and stylesheet load; without it, neither does.
+- Node.js 22 and Composer are needed only for development.
 
 ## Installation
 
@@ -39,6 +41,10 @@ in place.
   presets share slugs, so switching between them keeps saved content intact.
 - Apply the Accent, Dark or Tint section style to any Group, Columns or Cover to restyle
   it and everything inside it.
+- With WooCommerce active, Loam's templates cover the shop, product category, tag and
+  attribute archives, product search, single products, cart, checkout (with its own
+  pared-back header and footer), My Account, order confirmation and the coming soon
+  page. The My Account template applies to the page with the slug `my-account`.
 
 ## Development
 
@@ -68,6 +74,9 @@ npm run validate:blocks
 
 Done means the output ends with `All blocks valid.` Fix mismatches in the file; never
 repair them from the Site Editor, which inlines the pattern and breaks translation.
+The store templates use WooCommerce blocks, so WooCommerce must be active on the dev site
+for the validator to recognise them. It checks their names and the core blocks inside
+them, not their own wrapper markup; parse the templates in the Site Editor for that.
 `npm run check:contrast` checks every colour preset against the contrast pairs the
 bands rely on; `npm run patterns:flush` registers new pattern files on the dev site.
 
@@ -79,17 +88,20 @@ pass with a keyboard and a screen reader.
 
 ## Releases
 
-Bump `Version:` in `style.css`, `version` in `package.json` and `Stable tag` in
-`readme.txt` together, add the changelog entry, then push a matching `v`-prefixed tag:
+Run `/wp-release` in Claude Code, or do its steps by hand: bump `Version:` in
+`style.css`, `version` in `package.json` and `Stable tag` in `readme.txt` together, add
+the changelog entry, then push a matching `v`-prefixed tag:
 
 ```bash
-git tag v0.9.0 && git push origin main --tags
+git tag v1.0.0 && git push origin main --tags
 ```
 
 The GitHub Actions workflow builds the assets, checks the tag against the three version
 strings, zips the theme through `.distignore` with a single `loam/` root and attaches
 `loam.zip` to the GitHub release. `dist/` is committed because neither that zip nor a
-Theme Directory upload runs a build.
+Theme Directory upload runs a build. Upload the same `loam.zip` to the Theme Directory;
+refresh `screenshot.png` (1200×900, `npm run screenshot`) first if the home page has
+changed.
 
 ## Limitations
 
@@ -99,6 +111,9 @@ Theme Directory upload runs a build.
   because the section styles assume a light page ground.
 - The Events grid is a Query Loop over posts; live ticketing feeds need a plugin.
 - The Booking and Contact starters ship without a form.
+- The WooCommerce styles were checked against WooCommerce 11.1. WooCommerce restyles its
+  cart, checkout and mini cart between releases, so a later version may need selector
+  updates in `src/styles/woocommerce.scss`.
 
 ## Credits
 
