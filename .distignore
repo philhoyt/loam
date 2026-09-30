@@ -20,6 +20,8 @@ plans
 _playground
 *.zip
 *.map
+# 0-byte JS stubs webpack emits beside each CSS entry
+dist/css/*.js
 package.json
 package-lock.json
 composer.json
