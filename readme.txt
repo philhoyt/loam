@@ -6,7 +6,7 @@ Requires PHP: 8.2
 Stable tag: 0.10.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Tags: one-column, wide-blocks, block-patterns, block-styles, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, rtl-language-support, style-variations, threaded-comments, translation-ready, entertainment, food-and-drink
+Tags: e-commerce, one-column, wide-blocks, block-patterns, block-styles, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, rtl-language-support, style-variations, threaded-comments, translation-ready, entertainment, food-and-drink
 
 A block theme for venues, bars, bowling alleys and clubs
 
@@ -22,6 +22,7 @@ Loam is built around heavy uppercase headings (Unbounded), a grotesk body face (
 * Two typography presets: Unbounded & Space Grotesk, and an all-Space Grotesk alternative.
 * Pages and posts use the featured image as their masthead; a "Page (No Title)" template is there for pages that start with a hero.
 * The mobile menu opens as a full-screen band in the accent colour.
+* WooCommerce templates for the shop, product categories and attributes, product search, single products, cart, a pared-back checkout, My Account, order confirmation and the coming soon page, styled to match the rest of the site.
 
 == Installation ==
 
@@ -46,6 +47,10 @@ The page template uses the page's featured image as the masthead. Set a featured
 = Does Loam need a plugin? =
 
 No. Every pattern is built from core blocks. The Events grid lists posts, so an events plugin is optional; the Booking and Contact starters link to an email address and leave room for the form plugin of your choice.
+
+= Does Loam support WooCommerce? =
+
+Yes. With WooCommerce active, Loam's own templates are used for the shop, product category, tag and attribute archives, product search, single products, cart, checkout, My Account, order confirmation and the coming soon page, and WooCommerce's forms, notices, cart and checkout pick up the theme's colours, type and field style. Without WooCommerce none of this loads. The My Account template applies to the page with the slug "my-account", which is the one WooCommerce creates.
 
 = How do I change the colours? =
 
