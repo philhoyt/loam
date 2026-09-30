@@ -20,6 +20,12 @@
  * Both fail the run. Class order and inline-style order do not matter;
  * missing or extra classes do.
  *
+ * A block name that is not registered fails the run. Plugin blocks the site
+ * has registered (WooCommerce's, say) are registered here by name and
+ * attributes, so templates that use them can be checked: their names and the
+ * core blocks inside them are validated, their own wrapper markup is not,
+ * because their save() lives in the plugin's editor JS.
+ *
  * Usage:
  *   node bin/validate-blocks.js                      # everything
  *   node bin/validate-blocks.js templates/page.html  # only these files
@@ -75,7 +81,7 @@ globalThis.matchMedia =
 		removeEventListener() {},
 	}));
 
-const { parse, getBlockType, validateBlock } = require('@wordpress/blocks');
+const { parse, getBlockType, validateBlock, registerBlockType } = require('@wordpress/blocks');
 const { registerCoreBlocks } = require('@wordpress/block-library');
 
 // Registration and parsing log through console; keep the report clean.
@@ -109,6 +115,50 @@ console.warn = capture;
 console.error = capture;
 
 registerCoreBlocks();
+
+// Plugin blocks the running site registers, keyed by name. Their save() is
+// not available here, so they are registered with a null save and only their
+// names are checked (see walk()).
+const pluginBlocks = new Set();
+function registerPluginBlocks() {
+	const cli = wpCli();
+	if (!cli) {
+		return;
+	}
+	const php =
+		'$out = array();' +
+		'foreach ( WP_Block_Type_Registry::get_instance()->get_all_registered() as $name => $type ) {' +
+		"  if ( 0 !== strpos( $name, 'core/' ) ) { $out[ $name ] = (object) $type->attributes; }" +
+		'}' +
+		'echo wp_json_encode( (object) $out );';
+	let blocks;
+	try {
+		const out = execFileSync(cli[0], [...cli.slice(1), 'eval', php], {
+			cwd: root,
+			encoding: 'utf8',
+			stdio: ['ignore', 'pipe', 'ignore'],
+			timeout: 60000,
+		});
+		blocks = JSON.parse(out.slice(out.indexOf('{')));
+	} catch (e) {
+		process.stderr.write(`[validate-blocks] could not read plugin blocks (${cli[0]}): ${e.message}\n`);
+		return;
+	}
+	for (const [name, attributes] of Object.entries(blocks)) {
+		if (getBlockType(name)) {
+			continue;
+		}
+		registerBlockType(name, {
+			apiVersion: 3,
+			title: name,
+			category: 'widgets',
+			attributes,
+			save: () => null,
+		});
+		pluginBlocks.add(name);
+	}
+}
+registerPluginBlocks();
 
 // ---------------------------------------------------------------------------
 // Collect documents: { name, content }
@@ -257,6 +307,7 @@ function collect() {
 // Validate
 
 let problems = 0;
+let shallow = 0;
 let checked = 0;
 
 function indent(text) {
@@ -276,10 +327,15 @@ function report(doc, label, verdict, detail) {
 function walk(blocks, doc, trail) {
 	for (const block of blocks) {
 		checked++;
-		const label = [...trail, block.name].join(' > ');
-		const blockType = getBlockType(block.name);
+		// parse() turns an unregistered name into core/missing, which is
+		// "valid", so a misspelt block name would otherwise pass.
+		const name = block.name === 'core/missing' ? block.attributes.originalName : block.name;
+		const label = [...trail, name].join(' > ');
+		const blockType = block.name === 'core/missing' ? null : getBlockType(name);
 		if (!blockType) {
 			report(doc, label, 'unknown block type');
+		} else if (pluginBlocks.has(name)) {
+			shallow++;
 		} else if (block.isValid === false) {
 			report(doc, label, 'invalid, would enter recovery mode', captured.join('\n'));
 		} else if (block.originalContent !== undefined) {
@@ -296,7 +352,7 @@ function walk(blocks, doc, trail) {
 			}
 		}
 		captured = [];
-		walk(block.innerBlocks, doc, [...trail, block.name]);
+		walk(block.innerBlocks, doc, [...trail, name]);
 	}
 }
 
@@ -313,6 +369,9 @@ console.warn = original.warn;
 console.error = original.error;
 
 console.log(`\nChecked ${checked} blocks across ${documents.length} documents.`);
+if (shallow) {
+	console.log(`${shallow} plugin block(s): name checked, own markup not compared (open the template in the Site Editor).`);
+}
 if (problems) {
 	console.log(`${problems} block(s) need fixing.`);
 	process.exit(1);
