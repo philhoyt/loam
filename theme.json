@@ -801,6 +801,67 @@
           }
         },
         "css": "& > * { margin-block: 0.75rem 0; } & > :first-child { margin-block-start: 0; }"
+      },
+      "woocommerce/breadcrumbs": {
+        "color": {
+          "text": "var(--wp--preset--color--contrast)"
+        },
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--xs)"
+        }
+      },
+      "woocommerce/catalog-sorting": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--xs)"
+        }
+      },
+      "woocommerce/customer-account": {
+        "elements": {
+          "link": {
+            "color": {
+              "text": "var(--wp--preset--color--contrast)"
+            }
+          }
+        }
+      },
+      "woocommerce/mini-cart": {
+        "color": {
+          "text": "var(--wp--preset--color--contrast)"
+        }
+      },
+      "woocommerce/order-confirmation-status": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--l)"
+        }
+      },
+      "woocommerce/product-price": {
+        "typography": {
+          "fontWeight": "700"
+        }
+      },
+      "woocommerce/product-results-count": {
+        "color": {
+          "text": "var(--wp--preset--color--contrast)"
+        },
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--xs)"
+        }
+      },
+      "woocommerce/product-sale-badge": {
+        "border": {
+          "radius": "var(--wp--custom--radius--small)",
+          "width": "0"
+        },
+        "color": {
+          "background": "var(--wp--preset--color--primary)",
+          "text": "var(--wp--preset--color--contrast)"
+        },
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--xxs)",
+          "fontWeight": "700",
+          "letterSpacing": "0.08em",
+          "textTransform": "uppercase"
+        }
       }
     },
     "color": {
@@ -1029,6 +1090,16 @@
       "area": "footer",
       "name": "footer",
       "title": "Footer"
+    },
+    {
+      "area": "header",
+      "name": "checkout-header",
+      "title": "Checkout Header"
+    },
+    {
+      "area": "footer",
+      "name": "checkout-footer",
+      "title": "Checkout Footer"
     }
   ]
 }
