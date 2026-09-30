@@ -83,10 +83,11 @@ This is a **WordPress Full Site Editing (FSE) block theme**. There are no PHP pa
 
 - `src/styles/style.scss` → `dist/css/style.css` (front-end)
 - `src/styles/editor.scss` → `dist/css/editor.css` (editor-only)
+- `src/styles/woocommerce.scss` → `dist/css/woocommerce.css` (front end and editor, only while WooCommerce is active)
 
 Webpack (`webpack.config.js`) extends the default `@wordpress/scripts` config, separating CSS into a `css/` subdirectory and generating `*.asset.php` manifest files used by `inc/setup.php` for versioned asset enqueueing. `src/scripts/` is reserved as the entry point for theme JS — add an entry to `webpack.config.js` when the first script lands.
 
-Blocks live under `src/blocks/<name>/` and are discovered automatically: `wp-scripts` globs `src/` for `block.json` and builds an entry point per script field, so no manual entry is needed. `webpack.config.js` **merges** its two CSS entries into that discovered set rather than replacing it — replacing `entry` silently disables block discovery.
+Blocks live under `src/blocks/<name>/` and are discovered automatically: `wp-scripts` globs `src/` for `block.json` and builds an entry point per script field, so no manual entry is needed. `webpack.config.js` **merges** its three CSS entries into that discovered set rather than replacing it — replacing `entry` silently disables block discovery.
 
 `start` and `build` pass `--experimental-modules`, which is required for the `block.json` `viewScriptModule` field (i.e. any Interactivity API block). That flag makes `@wordpress/scripts` export an **array** of two configs — `[scripts, modules]` — instead of one object, which is why `webpack.config.js` destructures both and customises them separately. The `splitChunks` override is deliberately applied only to the scripts config; the Interactivity router arrives via a dynamic `import()` and needs chunking left alone.
 
@@ -157,7 +158,7 @@ Placeholder artwork in `assets/images/*.svg` is generated geometric art, CC0, re
 | `phpstan.neon`                  | PHPStan config (level 5, WordPress stubs)                                                                                                                                                                                                             |
 | `.wp-env.json`                  | wp-env config: mounts and activates this theme, PHP 8.2, ports 8894/8895 (other projects on this machine hold 8888–8893)                                                                                                                              |
 | `bin/wp.sh`                     | WP-CLI wrapper that delegates to `wp-env run cli wp`. Paths in arguments resolve inside the container (`/var/www/html/wp-content/themes/loam`)                                                                                                        |
-| `bin/validate-blocks.js`        | Block markup validator, copied from the `wordpress` Claude Code plugin; excluded from ESLint/Prettier so it stays diff-able against the plugin copy                                                                                                   |
+| `bin/validate-blocks.js`        | Block markup validator, copied from the `wordpress` Claude Code plugin; excluded from ESLint/Prettier so it stays diff-able against the plugin copy. Local change: plugin blocks are registered from the site and unknown block names fail            |
 | `.distignore`                   | Paths excluded from the theme zip (source, tooling, dotfiles, docs, lockfiles)                                                                                                                                                                        |
 | `.github/workflows/release.yml` | On a `v*` tag: builds, checks the tag against `style.css` `Version`, `package.json` and `readme.txt` `Stable tag`, stages through `.distignore`, zips with a single `loam/` root, and publishes a GitHub release with the fixed asset name `loam.zip` |
 
@@ -175,6 +176,24 @@ Three core-markup traps, documented at the top of the module: `__container` is n
 direct child of `.wp-block-navigation`; the open overlay inherits the bar's
 `items-justified-*` alignment and needs the three `--navigation-layout-*` custom
 properties reset; core marks the open overlay's background and padding `!important`.
+
+### WooCommerce
+
+Loam ships store templates (`archive-product`, `taxonomy-product_attribute`, `product-search-results`, `single-product`, `page-cart`, `page-checkout`, `page-my-account`, `order-confirmation`, `coming-soon`) and `checkout-header`/`checkout-footer` parts, ported from Fairport. All are thin shells over `hidden-*` patterns, so nothing WooCommerce-specific shows in the inserter. `dist/css/woocommerce.css` (from `src/styles/woocommerce.scss`) is enqueued on the front end and in the editor only when `class_exists( 'WooCommerce' )`; theme.json `woocommerce/*` block styles are ignored by core when WooCommerce is off. `loam.local` has WooCommerce active with three seeded products (Fairport's `bin/seed-store.php`).
+
+Things that are easy to get wrong:
+
+- **WooCommerce puts `.woocommerce` and `.woocommerce-account` on `<body>`.** A `body .woocommerce …` selector silently misses product pages and My Account; `woocommerce.scss` anchors on `html` instead. The `--wc-form-*` tokens stay on `body`, because `html` loses to WooCommerce's `:root`.
+- **WooCommerce's CSS uses Twenty Twenty-Four's preset slugs** (`font-size--small`, `spacing--20`, `color--background`). `woocommerce.scss` aliases them to Loam's; without that, fields fall back to the browser's 13px.
+- **`primary` stays off text here too.** WooCommerce's required asterisk, current account link and sale badge text would all put text in the accent; the stylesheet and theme.json keep them `contrast`.
+- **Section styles only reach the core blocks they list** (`blockTypes` in `styles/blocks/*.json`). An `is-style-section-tint` class on a WooCommerce block renders nothing; give the block its own `backgroundColor`/`textColor` if it supports colour, as the create-account box in `hidden-order-confirmation` does.
+- **The closed mini cart drawer is only faded out by WooCommerce,** leaving its buttons in the tab order behind `aria-hidden` (axe `aria-hidden-focus`). `woocommerce.scss` adds `visibility: hidden` to the hidden overlay.
+- **Block hooks don't reach blocks inside patterns.** WooCommerce hooks `order-confirmation-create-account` after the summary only in a `WP_Block_Template` context, so `hidden-order-confirmation` places it explicitly.
+- **`aria-current` can't be saved on a Button block.** Mark the current button with the `is-current` class; `mark_current_button()` in `inc/setup.php` adds the attribute on output.
+- **Single product uses `add-to-cart-form`,** as WooCommerce's own blockified template does, not `add-to-cart-with-options`, which needs per-product-type template parts. Classic upsells are unhooked; the pattern shows them with the Upsells product collection.
+- **The header wraps the navigation in a flex Group.** WooCommerce block-hooks the customer account and mini cart blocks in after the navigation; without the wrapper the header's `space-between` spreads them across the bar.
+- **`validate:blocks` registers plugin blocks from the running site,** so it needs WooCommerce active on the dev site. It checks their names and the core blocks inside them, but not their own saved wrapper markup. For that, open the Site Editor and run `wp.blocks.parse()` over every `loam/` pattern (REST `/wp/v2/block-patterns/patterns`) and template, checking `isValid`; WooCommerce's editor scripts are loaded there. Take WooCommerce block markup from `wp.blocks.serialize()` in the editor, not from another theme. On wp-env, add WooCommerce with an uncommitted `.wp-env.override.json` (`"plugins": ["https://downloads.wordpress.org/plugin/woocommerce.latest-stable.zip"]`).
+- **Several WooCommerce blocks have no spacing support** (`product-collection`, `product-meta`). A `style.spacing` attribute on them is not saved, so their wrapper fails validation; put the spacing on a child or a wrapping Group.
 
 ### Claude Code hooks
 
