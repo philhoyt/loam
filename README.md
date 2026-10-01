@@ -13,6 +13,27 @@ template parts are thin block-markup shells; the block markup that matters lives
 PHP patterns under `patterns/`, so user-facing strings are translatable. Page starters
 (Home, About, Events, Menu, Contact) compose the building blocks.
 
+## Screenshots
+
+The Home page starter, with the hero, signpost tiles, upcoming events, media bands and
+footer:
+
+<img src="docs/screenshots/home.png" alt="Loam home page: a split hero, four signpost tiles, an accent band of upcoming events, a cover call to action, two media bands, a social band and the dark footer" width="720">
+
+| Menu                                                                                                                  | About                                                                                                                   |
+| --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| <img src="docs/screenshots/menu.png" alt="Menu page with kitchen and bar price lists and an hours and location band"> | <img src="docs/screenshots/about.png" alt="About page with media bands, a booking call to action and an FAQ accordion"> |
+
+On a phone, with the menu closed and open:
+
+<img src="docs/screenshots/phone-home.png" alt="Home page hero on a phone" width="240"> <img src="docs/screenshots/phone-menu.png" alt="The open phone menu on the accent colour" width="240">
+
+The four colour presets, switched under Styles in the Site Editor:
+
+| Summer (default)                                                                    | Spring                                                                              | Autumn                                                                              | Winter                                                                              |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| <img src="docs/screenshots/preset-summer.png" alt="Home page in the Summer preset"> | <img src="docs/screenshots/preset-spring.png" alt="Home page in the Spring preset"> | <img src="docs/screenshots/preset-autumn.png" alt="Home page in the Autumn preset"> | <img src="docs/screenshots/preset-winter.png" alt="Home page in the Winter preset"> |
+
 ## Requirements
 
 - WordPress 6.9 or later (the FAQ pattern uses the core Accordion block)
