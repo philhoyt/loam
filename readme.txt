@@ -3,7 +3,7 @@ Contributors: philhoyt
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 0.10.0
+Stable tag: 1.0.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: e-commerce, one-column, wide-blocks, block-patterns, block-styles, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, rtl-language-support, style-variations, threaded-comments, translation-ready, entertainment, food-and-drink
@@ -65,6 +65,13 @@ No. All four presets are light, because the section styles assume a light page g
 The FAQ pattern uses the core Accordion block, added in WordPress 6.9.
 
 == Changelog ==
+
+= 1.0.0 =
+* Add: WooCommerce templates for the shop and product archives, product search, single products, cart, checkout, My Account, order confirmation and coming soon, with a category button row, upsells and related products.
+* Add: Checkout Header and Checkout Footer template parts with the logo, a "Secure checkout" label and a link back to the cart, and no menu.
+* Add: WooCommerce forms, notices, product tabs, cart, checkout and mini cart follow the theme's palette, type and field style, loaded only while WooCommerce is active.
+* Fix: The WooCommerce account and mini cart icons sit next to the menu instead of being spread across the header.
+* Fix: Accessibility: the closed mini cart drawer is out of the keyboard tab order.
 
 = 0.10.0 =
 * Add: Navigation open and close toggles drawn as bold bars to match the display face, sized by theme.json tokens.
