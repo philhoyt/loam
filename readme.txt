@@ -28,7 +28,7 @@ Loam is built around heavy uppercase headings (Unbounded), a grotesk body face (
 
 1. In your admin panel, go to Appearance > Themes and click the Add New button.
 2. Click Upload Theme and Choose File, then select the theme's .zip file. Click Install Now.
-3. Click Activate to use your new theme right away.
+3. Click Activate.
 
 == Frequently Asked Questions ==
 
@@ -46,7 +46,7 @@ The page template uses the page's featured image as the masthead. Set a featured
 
 = Does Loam need a plugin? =
 
-No. Every pattern is built from core blocks. The Events grid lists posts, so an events plugin is optional; the Booking and Contact starters link to an email address and leave room for the form plugin of your choice.
+No. The patterns in the inserter are built from core blocks. The store templates use WooCommerce's blocks and apply only while WooCommerce is active. The Events grid lists posts, so an events plugin is optional. The Booking and Contact starters link to an email address and leave room for a form plugin.
 
 = Does Loam support WooCommerce? =
 
@@ -54,7 +54,15 @@ Yes. With WooCommerce active, Loam's own templates are used for the shop, produc
 
 = How do I change the colours? =
 
-Open the Site Editor, go to Styles and choose a colour preset, or edit the palette. Every band, button and link follows the palette; the patterns carry no fixed colour values.
+Open the Site Editor, go to Styles and choose a colour preset, or edit the palette. Bands, buttons and links follow the palette; the patterns carry no fixed colour values. WooCommerce's error and warning notices keep their own red and amber.
+
+= Is there a dark colour preset? =
+
+No. All four presets are light, because the section styles assume a light page ground.
+
+= Why does WordPress 6.9 need to be the minimum? =
+
+The FAQ pattern uses the core Accordion block, added in WordPress 6.9.
 
 == Changelog ==
 
