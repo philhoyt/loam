@@ -3,7 +3,7 @@ Contributors: philhoyt
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: e-commerce, one-column, wide-blocks, block-patterns, block-styles, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, rtl-language-support, style-variations, threaded-comments, translation-ready, entertainment, food-and-drink
@@ -65,6 +65,19 @@ No. All four presets are light, because the section styles assume a light page g
 The FAQ pattern uses the core Accordion block, added in WordPress 6.9.
 
 == Changelog ==
+
+= 1.1.0 =
+* Add: Pages show comments when the page has comments open or already has some.
+* Add: Posts split into pages in the classic editor get page links. Page links are large enough to tap.
+* Add: Styles for classic editor content. The gallery shortcode is a grid, aligned images align, and blockquotes, tables, captions and code match their block equivalents.
+* Change: Body text is a fixed 18px. It was about 14px on a phone and 16px on a 1280px screen.
+* Change: Page titles are 33px on a phone instead of 37px, so fewer words split across lines.
+* Fix: Long words, wide images, captions and embeds no longer make the page scroll sideways on a phone.
+* Fix: The header band on posts and pages keeps a long title away from the screen edge and the site header.
+* Fix: A page that starts or ends with plain text has space under the header band and above the footer.
+* Fix: The first block of a post no longer sits flush against the post header.
+* Fix: Replies in deep comment threads keep a readable width on a phone. Numbered lists inside comments show their numbers.
+* Fix: Password-protected posts no longer show a stray dot before the author or a Comments heading with nothing under it.
 
 = 1.0.0 =
 * Add: WooCommerce templates for the shop and product archives, product search, single products, cart, checkout, My Account, order confirmation and coming soon, with a category button row, upsells and related products.
