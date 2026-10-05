@@ -309,3 +309,30 @@ function unwrap_page_list_in_navigation( string $content ): string {
 	return 1 === $count ? $closed : $content;
 }
 add_filter( 'render_block_core/navigation', __NAMESPACE__ . '\\unwrap_page_list_in_navigation' );
+
+/**
+ * Add page links to a paginated post written in the classic editor.
+ *
+ * The Post Content block prints wp_link_pages() only when the post contains a
+ * Page Break block. A classic `<!--nextpage-->` marker still splits the post
+ * into pages, which are then left with no links between them. The links go
+ * inside the block's wrapper, where core puts them for a Page Break.
+ *
+ * @param string $content Rendered post content block.
+ * @return string
+ */
+function add_classic_page_links( string $content ): string {
+	global $multipage;
+
+	if ( ! $multipage || '' === $content || has_block( 'core/nextpage' ) ) {
+		return $content;
+	}
+
+	$closing_tag = strrpos( $content, '</' );
+	if ( false === $closing_tag ) {
+		return $content;
+	}
+
+	return substr_replace( $content, wp_link_pages( array( 'echo' => 0 ) ), $closing_tag, 0 );
+}
+add_filter( 'render_block_core/post-content', __NAMESPACE__ . '\\add_classic_page_links' );

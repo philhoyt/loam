@@ -1,0 +1,204 @@
+//
+// Module: classic content.
+//
+// Posts written in the classic editor, comments, and anything a plugin prints
+// as plain HTML carry none of the block classes that theme.json styles hang
+// on: a `<blockquote>` is not a Quote block, a `[gallery]` is not a Gallery
+// block. These rules give that markup the look of the matching block.
+//
+// Front-end only. Everything is scoped to post and comment content, and the
+// element rules only match markup with no class of its own, so blocks and
+// plugin output (a calendar table, an embedded tweet) are never touched.
+//
+
+@use "../tools/context";
+
+$content: ".wp-block-post-content, .wp-block-comment-content";
+$monospace: ui-monospace, sfmono-regular, menlo, consolas, "Liberation Mono", monospace;
+
+@include context.is(front) {
+	//
+	// Media.
+	//
+
+	// Images and iframes come with width attributes, captions with an inline
+	// width. Core only constrains images that have a `wp-image-*` class.
+	:where(#{$content}) :where(img, video, iframe, embed, object) {
+		max-width: 100%;
+	}
+
+	:where(#{$content}) :where(img) {
+		height: auto;
+	}
+
+	// A classic caption carries its image width inline. Keep it inside its
+	// container and, like every other child of a constrained layout, inside
+	// the content width: a bare `100%` here would override core's
+	// content-width limit and let a 1200px caption span a wide screen.
+	/* stylelint-disable-next-line selector-class-pattern -- classic editor class. */
+	.wp-caption {
+		max-width: min(100%, var(--wp--style--global--content-size, 100%));
+	}
+
+	// A classic video embed is a bare iframe with pixel width and height
+	// attributes. Once the width is capped the height has to follow, or the
+	// player is letterboxed on a phone. Block embeds are sized by core and
+	// not matched.
+	:where(#{$content}) > p > :where(iframe[src*="youtube.com"], iframe[src*="youtube-nocookie.com"], iframe[src*="vimeo.com"]) {
+		height: auto;
+		aspect-ratio: 16 / 9;
+	}
+
+	// Captions, as theme.json's `elements.caption` styles them for blocks.
+	/* stylelint-disable-next-line selector-class-pattern -- classic editor classes. */
+	.wp-caption-text,
+	.gallery-caption {
+		margin-block: 0.5em 0;
+		color: var(--wp--preset--color--contrast-dark);
+		font-size: var(--wp--preset--font-size--xs);
+		line-height: 1.4;
+	}
+
+	//
+	// Alignment.
+	//
+
+	// Core floats aligned blocks and captions, but an aligned image typed
+	// into a paragraph is neither. Core keeps `left` literal in right-to-left
+	// locales; this build mirrors it there, because the minifier strips the
+	// `rtl:ignore` directive before the RTL stylesheet is generated.
+	:where(#{$content}) :where(p, a) > img.alignleft {
+		float: left;
+		margin: 0.3em var(--wp--preset--spacing--m) var(--wp--preset--spacing--s) 0;
+	}
+
+	:where(#{$content}) :where(p, a) > img.alignright {
+		float: right;
+		margin: 0.3em 0 var(--wp--preset--spacing--s) var(--wp--preset--spacing--m);
+	}
+
+	:where(#{$content}) :where(p, a) > img.aligncenter {
+		display: block;
+		margin-inline: auto;
+	}
+
+	// On a phone a floated image can take nearly the whole column and leave
+	// the text beside it a strip a few letters wide. Never let a float have
+	// more than half.
+	@media (width <= 600px) {
+		:where(#{$content}) :is(.alignleft, .alignright) {
+			max-width: 50%;
+		}
+	}
+
+	//
+	// The [gallery] shortcode. Block themes get no gallery CSS from core.
+	//
+
+	/* stylelint-disable selector-class-pattern -- classic editor classes. */
+	.gallery {
+		--gallery-columns: 3;
+
+		display: grid;
+		grid-template-columns: repeat(var(--gallery-columns), minmax(0, 1fr));
+		gap: var(--wp--preset--spacing--s);
+	}
+
+	@for $i from 1 through 9 {
+		.gallery-columns-#{$i} {
+			--gallery-columns: #{$i};
+		}
+	}
+
+	// Four columns of thumbnails is as many as a phone can show.
+	@media (width <= 600px) {
+		.gallery:not(.gallery-columns-1, .gallery-columns-2, .gallery-columns-3) {
+			--gallery-columns: 3;
+		}
+	}
+
+	.gallery-item {
+		margin: 0;
+		text-align: center;
+	}
+
+	.gallery-icon img {
+		display: block;
+		width: 100%;
+		border-radius: var(--wp--custom--radius--small);
+	}
+	/* stylelint-enable selector-class-pattern */
+
+	//
+	// Text elements.
+	//
+
+	// As the Quote block.
+	:where(#{$content}) blockquote:not([class]) {
+		margin-inline: 0;
+		padding-inline-start: var(--wp--preset--spacing--m);
+		border-inline-start: 4px solid var(--wp--preset--color--primary);
+		font-size: var(--wp--preset--font-size--l);
+		font-weight: 500;
+
+		cite {
+			font-size: var(--wp--preset--font-size--s);
+		}
+	}
+
+	// As the Table block's default style.
+	:where(#{$content}) table:not([class]) {
+		width: 100%;
+		border-collapse: collapse;
+
+		th,
+		td {
+			padding: 0.5em;
+			border: 1px solid;
+			text-align: start;
+		}
+	}
+
+	// As the Separator block.
+	:where(#{$content}) hr:not([class]) {
+		border: 0;
+		border-block-end: 3px solid var(--wp--preset--color--contrast);
+	}
+
+	:where(#{$content}) dt {
+		font-weight: 700;
+	}
+
+	:where(#{$content}) dd {
+		margin-inline-start: var(--wp--preset--spacing--m);
+		margin-block-end: var(--wp--preset--spacing--xs);
+	}
+}
+
+//
+// Code. Shared with the editor, where it reaches the Code and Preformatted
+// blocks; verse is poetry and keeps the body face.
+//
+
+:where(pre):not(.wp-block-verse) {
+	padding: var(--wp--preset--spacing--s) var(--wp--preset--spacing--m);
+	border-radius: var(--wp--custom--radius--small);
+	background-color: var(--wp--preset--color--contrast-light);
+	color: var(--wp--preset--color--contrast);
+	font-family: $monospace;
+	font-size: var(--wp--preset--font-size--xs);
+	line-height: var(--wp--custom--line-height--medium);
+	tab-size: 4;
+}
+
+:where(code, kbd, tt) {
+	font-family: $monospace;
+	font-size: 0.9em;
+}
+
+:where(:not(pre) > code, kbd) {
+	padding: 0.1em 0.35em;
+	border-radius: var(--wp--custom--radius--small);
+	background-color: var(--wp--preset--color--contrast-light);
+	color: var(--wp--preset--color--contrast);
+}
