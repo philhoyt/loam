@@ -9,7 +9,11 @@
 		width: 100%;
 		min-block-size: 100svh;
 		display: grid;
-		grid-template-columns: 1fr;
+
+		// `minmax(0, …)` rather than a bare `1fr`: a grid track is never narrower
+		// than its widest content, so one unbreakable word or a wide `<pre>`
+		// would otherwise stretch the header, main and footer past the viewport.
+		grid-template-columns: minmax(0, 1fr);
 		grid-template-rows: auto 1fr auto;
 		grid-template-areas:
 			"header"

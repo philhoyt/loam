@@ -11,6 +11,7 @@
 @use "modules/buttons";
 @use "modules/forms";
 @use "modules/navigation";
+@use "modules/classic";
 @use "modules/utilities";
 
 html {
@@ -79,6 +80,108 @@ a {
 */
 h1, h2, h3, h4, h5, h6, blockquote, caption, figcaption, p {
 	text-wrap: pretty;
+}
+
+/*
+* Break a word that is wider than its column (a long URL, a title made of one
+* word) instead of letting it run off the screen. Ordinary text is unaffected:
+* the break is only used when the word cannot fit on a line of its own.
+*/
+body {
+	overflow-wrap: break-word;
+}
+
+/*
+* The previous and next links share one row. Cap each at half of it and let a
+* long title break anywhere, so one unbreakable title cannot push the row wider
+* than the page or squeeze the other link down to a few characters. A link on
+* its own (the first or last post) keeps the whole row. Scoped to the row, so
+* a navigation link block placed in post content is left alone.
+*/
+.is-layout-flex > .wp-block-post-navigation-link {
+	overflow-wrap: anywhere;
+
+	&:not(:only-child) {
+		max-width: 50%;
+	}
+
+	&.post-navigation-link-next {
+		margin-inline-start: auto;
+		text-align: end;
+	}
+}
+
+/*
+* Page links under a multi-page post. Core prints them as bare inline text,
+* which leaves a one-digit link a few pixels wide; give each number a box
+* large enough to tap and mark the current page.
+*/
+.post-nav-links {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--wp--preset--spacing--xs);
+	margin-block-start: var(--wp--preset--spacing--l);
+	font-size: var(--wp--preset--font-size--s);
+	font-weight: 700;
+}
+
+.post-page-numbers {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 2.75rem;
+	min-height: 2.75rem;
+	border: 2px solid var(--wp--preset--color--contrast);
+	border-radius: var(--wp--custom--radius--small);
+	text-decoration: none;
+
+	&.current {
+		background-color: var(--wp--preset--color--contrast);
+		color: var(--wp--preset--color--base);
+	}
+}
+
+/*
+* Indent each level of replies by an amount that follows the screen width. A
+* fixed indent leaves a fifth-level reply a column a few words wide on a phone.
+* Set here rather than in theme.json because core's own `padding-left` on this
+* selector outranks the zero-specificity rules theme.json emits. `li > ol` is
+* a list of replies; a list typed into a comment sits deeper, inside the
+* comment content.
+*/
+.wp-block-comment-template li > ol {
+	padding-inline-start: clamp(1rem, 5vw, 4.5rem);
+}
+
+/*
+* Core's reply-list reset (`.wp-block-comment-template ol`) also strips the
+* numbers from an ordered list written inside a comment. Give them back.
+*/
+.wp-block-comment-template .wp-block-comment-content ol {
+	list-style: revert;
+	padding-inline-start: revert;
+}
+
+/* A pingback or trackback has no avatar; drop the empty slot it leaves. */
+.wp-block-avatar:empty {
+	display: none;
+}
+
+/*
+* On a password-protected post the comments block still prints its heading,
+* with no comments and no form under it. Hide the block until it has either.
+*/
+.wp-block-comments:not(:has(.wp-block-comment-template, .wp-block-post-comments-form)) {
+	display: none;
+}
+
+/* Keep the password field and its button apart when they wrap onto two lines. */
+.post-password-form p:has(input[type="password"]) {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	gap: var(--wp--preset--spacing--xs);
 }
 
 /*

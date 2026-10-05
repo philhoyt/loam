@@ -22,11 +22,46 @@
 	}
 }
 
+@include context.is(front) {
+	// Pages give their content no padding, so a page built from full-bleed
+	// bands sits flush under the header and on top of the footer. A page that
+	// opens or closes with ordinary content (a paragraph, a list) needs the
+	// space a band would have brought with it.
+	:where(main.wp-block-group, .is-page-content) > .wp-block-post-content {
+		> :first-child:not(.alignfull) {
+			margin-block-start: var(--wp--preset--spacing--xl);
+		}
+
+		> :last-child:not(.alignfull) {
+			margin-block-end: var(--wp--preset--spacing--xxl);
+		}
+
+		// Comments under the content bring their own space. (`:has()` cannot
+		// be nested, hence the two child selectors.)
+		&:has(+ .wp-block-comments > .wp-block-comment-template, + .wp-block-comments > .wp-block-post-comments-form) > :last-child {
+			margin-block-end: 0;
+		}
+	}
+}
+
 // Shared between the front-end and the editor.
 
 // Headings inside a photo band need a shadow to stay legible over busy images.
 .wp-block-cover :where(h1, h2, h3) {
 	text-shadow: 0 2px 4px rgb(0 0 0 / 40%);
+}
+
+// Core gives a cover 1em of padding on every side. That is tighter than the
+// page gutter, so a header with a long title or many categories ran closer to
+// the screen edge than the content below it, and almost touched the site
+// header. Use the page gutter at the sides (core zeroes the inner container's
+// own, because it is nested) and a band's worth of room above and below.
+// Short headers are unchanged: the padding sits inside the cover's minimum
+// height.
+/* stylelint-disable-next-line selector-class-pattern -- core block classes. */
+.wp-block-cover.is-page-header {
+	padding-block: var(--wp--preset--spacing--l);
+	padding-inline: var(--wp--style--root--padding-left, 1em) var(--wp--style--root--padding-right, 1em);
 }
 
 // The page header cover pulls in the featured image. When a page has none, core
