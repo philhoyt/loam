@@ -321,7 +321,7 @@ add_filter( 'render_block_core/navigation', __NAMESPACE__ . '\\unwrap_page_list_
  * @param string $content Rendered post content block.
  * @return string
  */
-function add_classic_page_links( string $content ): string {
+function append_classic_page_links( string $content ): string {
 	global $multipage;
 
 	if ( ! $multipage || '' === $content || has_block( 'core/nextpage' ) ) {
@@ -335,4 +335,4 @@ function add_classic_page_links( string $content ): string {
 
 	return substr_replace( $content, wp_link_pages( array( 'echo' => 0 ) ), $closing_tag, 0 );
 }
-add_filter( 'render_block_core/post-content', __NAMESPACE__ . '\\add_classic_page_links' );
+add_filter( 'render_block_core/post-content', __NAMESPACE__ . '\\append_classic_page_links' );
