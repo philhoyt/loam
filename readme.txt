@@ -3,7 +3,7 @@ Contributors: philhoyt
 Requires at least: 6.9
 Tested up to: 7.1
 Requires PHP: 8.2
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: e-commerce, one-column, wide-blocks, block-patterns, block-styles, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, rtl-language-support, style-variations, threaded-comments, translation-ready, entertainment, food-and-drink
@@ -65,6 +65,9 @@ No. All four presets are light, because the section styles assume a light page g
 The FAQ pattern uses the core Accordion block, added in WordPress 6.9.
 
 == Changelog ==
+
+= 1.1.1 =
+* Fix: Renamed a theme function whose name the WordPress.org theme scanner reported as an admin menu call. No change to how the theme works.
 
 = 1.1.0 =
 * Add: Pages show comments when the page has comments open or already has some.
