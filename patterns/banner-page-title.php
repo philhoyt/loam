@@ -1,0 +1,20 @@
+<?php
+/**
+ * Title: Page title banner
+ * Slug: loam/banner-page-title
+ * Categories: banner
+ * Viewport Width: 1400
+ * Description: Photo masthead with a colour overlay and a single page title. For pages on the "Page (No Title)" template.
+ *
+ * @package loam
+ */
+
+$loam_image = get_theme_file_uri( 'assets/images/masthead-2.svg' );
+?>
+<!-- wp:cover {"url":"<?php echo esc_url( $loam_image ); ?>","dimRatio":60,"overlayColor":"secondary","isUserOverlayColor":true,"minHeight":360,"align":"full","layout":{"type":"constrained"}} -->
+<div class="wp-block-cover alignfull" style="min-height:360px"><img class="wp-block-cover__image-background" alt="" src="<?php echo esc_url( $loam_image ); ?>" data-object-fit="cover"/><span aria-hidden="true" class="wp-block-cover__background has-secondary-background-color has-background-dim-60 has-background-dim"></span><div class="wp-block-cover__inner-container">
+	<!-- wp:heading {"textAlign":"center","level":1} -->
+	<h1 class="wp-block-heading has-text-align-center"><?php echo esc_html_x( 'About', 'Page title banner heading placeholder', 'loam' ); ?></h1>
+	<!-- /wp:heading -->
+</div></div>
+<!-- /wp:cover -->

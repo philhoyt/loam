@@ -239,7 +239,7 @@ Templates and template-parts under `templates/` and `parts/` are thin shells; th
 
 - `header.php` / `footer.php` — site-wide template-part patterns
 - `page-*.php` — full-page starters (`Block Types: core/post-content`, `Post Types: page, wp_template`, category `loam_page`): Home, About, Events, Menu, Contact. They compose the building blocks with `wp:pattern` refs
-- `banner-*.php`, `tiles-four.php`, `events-*.php`, `media-bands.php`, `cta-band.php`, `menu-list.php`, `faq.php`, `hours-location.php`, `social-band.php` — the building blocks, in core categories (`banner`, `featured`, `call-to-action`, `columns`, `text`, `about`, `contact`, `query`)
+- `banner-*.php`, `tiles-four.php`, `cards-three-up.php`, `events-*.php`, `media-bands.php`, `cta-*.php`, `team-member.php`, `menu-list.php`, `faq.php`, `hours-location.php`, `social-band.php` — the building blocks, in core categories (`banner`, `featured`, `call-to-action`, `columns`, `text`, `about`, `team`, `contact`, `query`). `banner-hero`, `banner-page-title`, `cards-three-up`, `cta-cover`, `cta-inline` and `team-member` were ported from Fairport; image radius comes from `theme.json` rather than per-image `border.radius`, and card images are plain with the heading as the only link
 - `template-*.php` — major-region patterns that compose a template (`template-query-loop`)
 - `hidden-*.php` — internal building blocks referenced only from templates or other patterns; not shown in the inserter
 - Other names (`comments.php`, `post-navigation.php`, `posts-recent.php`) — reusable building blocks that surface in the inserter

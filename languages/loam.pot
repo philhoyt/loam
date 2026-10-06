@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Loam 0.10.0\n"
+"Project-Id-Version: Loam 1.1.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/loam\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-30T23:06:59+00:00\n"
+"POT-Creation-Date: 2026-10-06T16:03:19+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: loam\n"
@@ -72,6 +72,51 @@ msgctxt "Photo band button placeholder"
 msgid "Events"
 msgstr ""
 
+#: patterns/banner-hero.php
+msgctxt "Pattern title"
+msgid "Hero with buttons"
+msgstr ""
+
+#: patterns/banner-hero.php
+msgctxt "Pattern description"
+msgid "Full-height photo masthead with a colour overlay, a heading, one line of copy and two buttons."
+msgstr ""
+
+#: patterns/banner-hero.php:17
+msgctxt "Hero heading placeholder"
+msgid "Roll in. Stay late."
+msgstr ""
+
+#: patterns/banner-hero.php:21
+msgctxt "Hero paragraph placeholder"
+msgid "One confident sentence about the place and who it is for. Two lines at most, so the photo can do the rest."
+msgstr ""
+
+#: patterns/banner-hero.php:27
+msgctxt "Hero button placeholder"
+msgid "Reserve a lane"
+msgstr ""
+
+#: patterns/banner-hero.php:31
+msgctxt "Hero secondary button placeholder"
+msgid "What&#8217;s on"
+msgstr ""
+
+#: patterns/banner-page-title.php
+msgctxt "Pattern title"
+msgid "Page title banner"
+msgstr ""
+
+#: patterns/banner-page-title.php
+msgctxt "Pattern description"
+msgid "Photo masthead with a colour overlay and a single page title. For pages on the \"Page (No Title)\" template."
+msgstr ""
+
+#: patterns/banner-page-title.php:17
+msgctxt "Page title banner heading placeholder"
+msgid "About"
+msgstr ""
+
 #: patterns/banner-split.php
 msgctxt "Pattern title"
 msgid "Split hero"
@@ -105,6 +150,46 @@ msgstr ""
 #: patterns/banner-split.php:47
 msgctxt "Split hero secondary button placeholder"
 msgid "Book a party"
+msgstr ""
+
+#: patterns/cards-three-up.php
+msgctxt "Pattern title"
+msgid "Three signposts"
+msgstr ""
+
+#: patterns/cards-three-up.php
+msgctxt "Pattern description"
+msgid "Three image cards, each with a linked heading and one line of copy."
+msgstr ""
+
+#: patterns/cards-three-up.php:15
+msgctxt "Three signposts heading placeholder"
+msgid "Reserve a lane"
+msgstr ""
+
+#: patterns/cards-three-up.php:16
+msgctxt "Three signposts text placeholder"
+msgid "Walk in or book ahead. Shoes are included."
+msgstr ""
+
+#: patterns/cards-three-up.php:20
+msgctxt "Three signposts heading placeholder"
+msgid "Food & drink"
+msgstr ""
+
+#: patterns/cards-three-up.php:21
+msgctxt "Three signposts text placeholder"
+msgid "Burgers, pitchers and a bar that stays open after the lanes close."
+msgstr ""
+
+#: patterns/cards-three-up.php:25
+msgctxt "Three signposts heading placeholder"
+msgid "Private events"
+msgstr ""
+
+#: patterns/cards-three-up.php:26
+msgctxt "Three signposts text placeholder"
+msgid "Birthdays, work nights and the whole place to yourselves."
 msgstr ""
 
 #: patterns/comments.php
@@ -149,6 +234,56 @@ msgstr ""
 #: patterns/cta-band.php:30
 msgctxt "Call to action band secondary button placeholder"
 msgid "See the spaces"
+msgstr ""
+
+#: patterns/cta-cover.php
+msgctxt "Pattern title"
+msgid "Statement over a photo"
+msgstr ""
+
+#: patterns/cta-cover.php
+msgctxt "Pattern description"
+msgid "Eyebrow, one big statement and an outline button on a photo band with a colour overlay."
+msgstr ""
+
+#: patterns/cta-cover.php:17
+msgctxt "Statement over a photo eyebrow placeholder"
+msgid "Since 1924"
+msgstr ""
+
+#: patterns/cta-cover.php:21
+msgctxt "Statement over a photo heading placeholder"
+msgid "Still family-run. Still open late."
+msgstr ""
+
+#: patterns/cta-cover.php:27
+msgctxt "Statement over a photo button placeholder"
+msgid "Our story"
+msgstr ""
+
+#: patterns/cta-inline.php
+msgctxt "Pattern title"
+msgid "Call to action, inline"
+msgstr ""
+
+#: patterns/cta-inline.php
+msgctxt "Pattern description"
+msgid "Accent band with a heading and one line of copy on the left and a button on the right."
+msgstr ""
+
+#: patterns/cta-inline.php:20
+msgctxt "Inline call to action heading placeholder"
+msgid "League night starts Tuesday"
+msgstr ""
+
+#: patterns/cta-inline.php:24
+msgctxt "Inline call to action paragraph placeholder"
+msgid "Teams of four, eight weeks, trophies at the end. No experience needed."
+msgstr ""
+
+#: patterns/cta-inline.php:32
+msgctxt "Inline call to action button placeholder"
+msgid "Sign up"
 msgstr ""
 
 #: patterns/events-list.php
@@ -1019,6 +1154,31 @@ msgstr ""
 #: patterns/social-band.php:28
 msgctxt "social link label"
 msgid "Email"
+msgstr ""
+
+#: patterns/team-member.php
+msgctxt "Pattern title"
+msgid "Team member"
+msgstr ""
+
+#: patterns/team-member.php
+msgctxt "Pattern description"
+msgid "Portrait beside a name, role and short bio. Stack several for a staff page."
+msgstr ""
+
+#: patterns/team-member.php:27
+msgctxt "Team member name placeholder"
+msgid "Jordan Alvarez"
+msgstr ""
+
+#: patterns/team-member.php:31
+msgctxt "Team member role placeholder"
+msgid "General manager"
+msgstr ""
+
+#: patterns/team-member.php:35
+msgctxt "Team member bio placeholder"
+msgid "Two or three sentences about this person: how they got here, what they look after, and the thing they would talk about all day if you let them."
 msgstr ""
 
 #: patterns/template-query-loop.php

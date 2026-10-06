@@ -14,7 +14,7 @@ A block theme for venues, bars, bowling alleys and clubs
 
 Loam is built around heavy uppercase headings (Unbounded), a grotesk body face (Space Grotesk), chunky buttons and a cream page ground broken up by accent-coloured bands.
 
-* Patterns for the things a venue site needs: a split hero, four signpost tiles, upcoming events cards, a photo band with a button, alternating media bands, a call to action band, a food and drink menu, hours and location, an FAQ and a follow band.
+* Patterns for the things a venue site needs: a split hero, a full-height hero with buttons, a page title banner, four signpost tiles, three signpost cards, upcoming events cards, a photo band with a button, a statement over a photo, alternating media bands, a call to action band, an inline call to action, a food and drink menu, hours and location, a team member card, an FAQ and a follow band.
 * Home, About, Events, Menu and Contact page starters compose those patterns; pick one from the Pages tab when you add a page.
 * An Events grid Query Loop starter turns a category of posts into a listing.
 * Three section styles (Accent, Dark, Tint) restyle a Group, Columns or Cover and everything inside it from one control.
@@ -42,7 +42,7 @@ Either edit the Upcoming events pattern by hand (three cards with date, title an
 
 = Why does my page have a plain dark header band? =
 
-The page template uses the page's featured image as the masthead. Set a featured image, or switch the page to the "Page (No Title)" template and start it with the Split hero or Photo band pattern.
+The page template uses the page's featured image as the masthead. Set a featured image, or switch the page to the "Page (No Title)" template and start it with the Hero with buttons, Split hero or Page title banner pattern.
 
 = Does Loam need a plugin? =
 
