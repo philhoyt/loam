@@ -85,7 +85,9 @@ This is a **WordPress Full Site Editing (FSE) block theme**. There are no PHP pa
 - `src/styles/editor.scss` → `dist/css/editor.css` (editor-only)
 - `src/styles/woocommerce.scss` → `dist/css/woocommerce.css` (front end and editor, only while WooCommerce is active)
 
-Webpack (`webpack.config.js`) extends the default `@wordpress/scripts` config, separating CSS into a `css/` subdirectory and generating `*.asset.php` manifest files used by `inc/setup.php` for versioned asset enqueueing. `src/scripts/` is reserved as the entry point for theme JS — add an entry to `webpack.config.js` when the first script lands.
+Webpack (`webpack.config.js`) extends the default `@wordpress/scripts` config, separating CSS into a `css/` subdirectory and generating `*.asset.php` manifest files used by `inc/setup.php` for versioned asset enqueueing.
+
+The CSS is built **unminified** on purpose. The Theme Directory requires stylesheets to ship as readable source, and the 1.1.1 review was held on minified `dist/css/*.css`. wp-scripts compresses CSS in two places in production: cssnano, which the root `postcss.config.js` replaces with the plain wp-scripts preset, and sass-loader's compressed output style, which `webpack.config.js` sets back to expanded. The release workflow fails the zip if any stylesheet has fewer than 50 indented lines. Do not add cssnano, a CSS minimizer plugin or `.cssnanorc` back. `src/scripts/` is reserved as the entry point for theme JS — add an entry to `webpack.config.js` when the first script lands.
 
 Blocks live under `src/blocks/<name>/` and are discovered automatically: `wp-scripts` globs `src/` for `block.json` and builds an entry point per script field, so no manual entry is needed. `webpack.config.js` **merges** its three CSS entries into that discovered set rather than replacing it — replacing `entry` silently disables block discovery.
 
