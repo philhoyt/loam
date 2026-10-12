@@ -66,6 +66,17 @@ The FAQ pattern uses the core Accordion block, added in WordPress 6.9.
 
 == Changelog ==
 
+= 1.2.0 =
+* Add: Six patterns from Fairport: Hero with buttons, Page title banner, Three signposts, Statement over a photo, an inline call to action and a Team member card.
+* Change: The stylesheets ship as readable CSS instead of minified files, as the theme directory requires.
+* Change: The footer copyright line is built from blocks and shows the site name without a year, so it stays current after the footer is edited in the Site Editor. A footer already saved in the Site Editor keeps its text until it is reset.
+* Fix: The keyboard focus ring changes colour with the band it sits on. It was teal everywhere, which was hard to see on the accent band, the dark bands and the mobile menu.
+* Fix: Submenu items keep the ink colour on hover, focus and for the current page. They were in the accent colour, which was too light on the tint.
+* Fix: Without WooCommerce, the store templates and the checkout header and footer no longer show in the Site Editor, and pages with the slug cart, checkout or my-account use the page template.
+* Fix: The hero pattern descriptions say they are for the "Page (No Title)" template, where their heading is the page's only H1.
+* Fix: Removed the text domain loading call, which the theme directory handles.
+* Fix: The Space Grotesk licence file uses the same line endings as the rest of the theme.
+
 = 1.1.1 =
 * Fix: Renamed a theme function whose name the WordPress.org theme scanner reported as an admin menu call. No change to how the theme works.
 
