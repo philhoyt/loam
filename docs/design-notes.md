@@ -43,18 +43,21 @@ overlay fixes; `page-no-title` template and no `front-page.html`; `dist/` commit
 
 Run `npm run check:contrast`. Text pairs need 4.5:1 (body 7:1); non-text pairs 3:1.
 
-| Pair                            | Used by                             | Min |
-| ------------------------------- | ----------------------------------- | --- |
-| `contrast` on `base`            | body                                | 7   |
-| `contrast` on `primary`         | text and buttons on the accent band | 4.5 |
-| `base` on `secondary`           | text on the dark band               | 4.5 |
-| `contrast` on `contrast-light`  | text on the tint band               | 4.5 |
-| `contrast-light` on `secondary` | muted text on the dark band         | 4.5 |
-| `secondary` on `base`           | eyebrows and dates                  | 4.5 |
-| `tertiary` on `base`            | focus ring                          | 3   |
-| `contrast-medium` on `base`     | hairlines and captions              | 3   |
-| `primary` on `base`             | link underline, accent shapes       | 3   |
-| `primary` on `secondary`        | accent button on the dark band      | 3   |
+| Pair                            | Used by                                 | Min |
+| ------------------------------- | --------------------------------------- | --- |
+| `contrast` on `base`            | body                                    | 7   |
+| `contrast` on `primary`         | text and buttons on the accent band     | 4.5 |
+| `base` on `secondary`           | text on the dark band                   | 4.5 |
+| `contrast` on `contrast-light`  | text on the tint band                   | 4.5 |
+| `contrast-light` on `secondary` | muted text on the dark band             | 4.5 |
+| `secondary` on `base`           | eyebrows and dates                      | 4.5 |
+| `tertiary` on `base`            | focus ring                              | 3   |
+| `tertiary` on `contrast-light`  | focus ring on the tint band             | 3   |
+| `base` on `tertiary`            | focus ring on a tertiary overlay        | 3   |
+| `contrast` on `contrast-medium` | focus ring on a contrast-medium overlay | 3   |
+| `contrast-medium` on `base`     | hairlines and captions                  | 3   |
+| `primary` on `base`             | link underline, accent shapes           | 3   |
+| `primary` on `secondary`        | accent button on the dark band          | 3   |
 
 Rule: `primary` is a band and button colour, never a text colour. Links are `contrast`
 with a `primary` underline.

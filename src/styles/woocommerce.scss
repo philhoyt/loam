@@ -29,7 +29,7 @@
 }
 
 @mixin focus-ring {
-	outline: var(--wp--custom--outline--width) var(--wp--custom--outline--style) var(--wp--preset--color--tertiary);
+	outline: var(--wp--custom--outline--width) var(--wp--custom--outline--style) var(--wp--custom--outline--color);
 	outline-offset: var(--wp--custom--outline--offset);
 }
 
@@ -412,8 +412,8 @@ html :is(.wp-block-woocommerce-cart, .wp-block-woocommerce-checkout, .wc-block-m
 	.wc-block-components-text-input input:focus,
 	.wc-block-components-textarea:focus,
 	.wc-blocks-components-select .wc-blocks-components-select__select:focus {
-		border-color: var(--wp--preset--color--tertiary);
-		box-shadow: 0 0 0 1px var(--wp--preset--color--tertiary);
+		border-color: var(--wp--custom--outline--color);
+		box-shadow: 0 0 0 1px var(--wp--custom--outline--color);
 	}
 
 	// Floating field labels; unrelated to the classic .form-row labels above.

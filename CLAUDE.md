@@ -85,7 +85,9 @@ This is a **WordPress Full Site Editing (FSE) block theme**. There are no PHP pa
 - `src/styles/editor.scss` → `dist/css/editor.css` (editor-only)
 - `src/styles/woocommerce.scss` → `dist/css/woocommerce.css` (front end and editor, only while WooCommerce is active)
 
-Webpack (`webpack.config.js`) extends the default `@wordpress/scripts` config, separating CSS into a `css/` subdirectory and generating `*.asset.php` manifest files used by `inc/setup.php` for versioned asset enqueueing. `src/scripts/` is reserved as the entry point for theme JS — add an entry to `webpack.config.js` when the first script lands.
+Webpack (`webpack.config.js`) extends the default `@wordpress/scripts` config, separating CSS into a `css/` subdirectory and generating `*.asset.php` manifest files used by `inc/setup.php` for versioned asset enqueueing.
+
+The CSS is built **unminified** on purpose. The Theme Directory requires stylesheets to ship as readable source, and the 1.1.1 review was held on minified `dist/css/*.css`. wp-scripts compresses CSS in two places in production: cssnano, which the root `postcss.config.js` replaces with the plain wp-scripts preset, and sass-loader's compressed output style, which `webpack.config.js` sets back to expanded. The release workflow fails the zip if any stylesheet has fewer than 50 indented lines. Do not add cssnano, a CSS minimizer plugin or `.cssnanorc` back. `src/scripts/` is reserved as the entry point for theme JS — add an entry to `webpack.config.js` when the first script lands.
 
 Blocks live under `src/blocks/<name>/` and are discovered automatically: `wp-scripts` globs `src/` for `block.json` and builds an entry point per script field, so no manual entry is needed. `webpack.config.js` **merges** its three CSS entries into that discovered set rather than replacing it — replacing `entry` silently disables block discovery.
 
@@ -239,7 +241,7 @@ Templates and template-parts under `templates/` and `parts/` are thin shells; th
 
 - `header.php` / `footer.php` — site-wide template-part patterns
 - `page-*.php` — full-page starters (`Block Types: core/post-content`, `Post Types: page, wp_template`, category `loam_page`): Home, About, Events, Menu, Contact. They compose the building blocks with `wp:pattern` refs
-- `banner-*.php`, `tiles-four.php`, `events-*.php`, `media-bands.php`, `cta-band.php`, `menu-list.php`, `faq.php`, `hours-location.php`, `social-band.php` — the building blocks, in core categories (`banner`, `featured`, `call-to-action`, `columns`, `text`, `about`, `contact`, `query`)
+- `banner-*.php`, `tiles-four.php`, `cards-three-up.php`, `events-*.php`, `media-bands.php`, `cta-*.php`, `team-member.php`, `menu-list.php`, `faq.php`, `hours-location.php`, `social-band.php` — the building blocks, in core categories (`banner`, `featured`, `call-to-action`, `columns`, `text`, `about`, `team`, `contact`, `query`). `banner-hero`, `banner-page-title`, `cards-three-up`, `cta-cover`, `cta-inline` and `team-member` were ported from Fairport; image radius comes from `theme.json` rather than per-image `border.radius`, and card images are plain with the heading as the only link
 - `template-*.php` — major-region patterns that compose a template (`template-query-loop`)
 - `hidden-*.php` — internal building blocks referenced only from templates or other patterns; not shown in the inserter
 - Other names (`comments.php`, `post-navigation.php`, `posts-recent.php`) — reusable building blocks that surface in the inserter
@@ -290,3 +292,7 @@ Things that are not derivable from the code:
 Run `/wp-release`: it bumps `style.css`, `package.json` and `readme.txt` together, writes
 the changelog, verifies the zip and tags. A `screenshot.png` (max 1200×900, real theme
 output; `npm run screenshot`) must be refreshed before any WordPress.org submission.
+
+After the bump and before the tag, regenerate `languages/loam.pot` (the `make-pot` command
+under [Translations](#translations)) and commit it with the bump. Its `Project-Id-Version`
+carries the theme version, and the 1.1.1 review flagged a pot still saying 0.10.0.

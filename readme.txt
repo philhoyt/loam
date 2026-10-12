@@ -14,7 +14,7 @@ A block theme for venues, bars, bowling alleys and clubs
 
 Loam is built around heavy uppercase headings (Unbounded), a grotesk body face (Space Grotesk), chunky buttons and a cream page ground broken up by accent-coloured bands.
 
-* Patterns for the things a venue site needs: a split hero, four signpost tiles, upcoming events cards, a photo band with a button, alternating media bands, a call to action band, a food and drink menu, hours and location, an FAQ and a follow band.
+* Patterns for the things a venue site needs: a split hero, a full-height hero with buttons, a page title banner, four signpost tiles, three signpost cards, upcoming events cards, a photo band with a button, a statement over a photo, alternating media bands, a call to action band, an inline call to action, a food and drink menu, hours and location, a team member card, an FAQ and a follow band.
 * Home, About, Events, Menu and Contact page starters compose those patterns; pick one from the Pages tab when you add a page.
 * An Events grid Query Loop starter turns a category of posts into a listing.
 * Three section styles (Accent, Dark, Tint) restyle a Group, Columns or Cover and everything inside it from one control.
@@ -42,7 +42,7 @@ Either edit the Upcoming events pattern by hand (three cards with date, title an
 
 = Why does my page have a plain dark header band? =
 
-The page template uses the page's featured image as the masthead. Set a featured image, or switch the page to the "Page (No Title)" template and start it with the Split hero or Photo band pattern.
+The page template uses the page's featured image as the masthead. Set a featured image, or switch the page to the "Page (No Title)" template and start it with the Hero with buttons, Split hero or Page title banner pattern.
 
 = Does Loam need a plugin? =
 
@@ -65,6 +65,17 @@ No. All four presets are light, because the section styles assume a light page g
 The FAQ pattern uses the core Accordion block, added in WordPress 6.9.
 
 == Changelog ==
+
+= 1.2.0 =
+* Add: Six patterns from Fairport: Hero with buttons, Page title banner, Three signposts, Statement over a photo, an inline call to action and a Team member card.
+* Change: The stylesheets ship as readable CSS instead of minified files, as the theme directory requires.
+* Change: The footer copyright line is built from blocks and shows the site name without a year, so it stays current after the footer is edited in the Site Editor. A footer already saved in the Site Editor keeps its text until it is reset.
+* Fix: The keyboard focus ring changes colour with the band it sits on. It was teal everywhere, which was hard to see on the accent band, the dark bands and the mobile menu.
+* Fix: Submenu items keep the ink colour on hover, focus and for the current page. They were in the accent colour, which was too light on the tint.
+* Fix: Without WooCommerce, the store templates and the checkout header and footer no longer show in the Site Editor, and pages with the slug cart, checkout or my-account use the page template.
+* Fix: The hero pattern descriptions say they are for the "Page (No Title)" template, where their heading is the page's only H1.
+* Fix: Removed the text domain loading call, which the theme directory handles.
+* Fix: The Space Grotesk licence file uses the same line endings as the rest of the theme.
 
 = 1.1.1 =
 * Fix: Renamed a theme function whose name the WordPress.org theme scanner reported as an admin menu call. No change to how the theme works.
