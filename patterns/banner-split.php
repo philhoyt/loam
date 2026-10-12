@@ -4,7 +4,7 @@
  * Slug: loam/banner-split
  * Categories: banner, featured
  * Viewport Width: 1400
- * Description: Image on one side, a big heading, a short paragraph and two buttons on the other.
+ * Description: Image on one side, a big heading, a short paragraph and two buttons on the other. For the "Page (No Title)" template: the heading is the page's H1.
  *
  * @package loam
  */

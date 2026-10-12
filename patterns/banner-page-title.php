@@ -4,7 +4,7 @@
  * Slug: loam/banner-page-title
  * Categories: banner
  * Viewport Width: 1400
- * Description: Photo masthead with a colour overlay and a single page title. For pages on the "Page (No Title)" template.
+ * Description: Photo masthead with a colour overlay and a single page title. For the "Page (No Title)" template: the heading is the page's H1.
  *
  * @package loam
  */
