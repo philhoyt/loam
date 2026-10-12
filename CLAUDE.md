@@ -292,3 +292,7 @@ Things that are not derivable from the code:
 Run `/wp-release`: it bumps `style.css`, `package.json` and `readme.txt` together, writes
 the changelog, verifies the zip and tags. A `screenshot.png` (max 1200×900, real theme
 output; `npm run screenshot`) must be refreshed before any WordPress.org submission.
+
+After the bump and before the tag, regenerate `languages/loam.pot` (the `make-pot` command
+under [Translations](#translations)) and commit it with the bump. Its `Project-Id-Version`
+carries the theme version, and the 1.1.1 review flagged a pot still saying 0.10.0.
