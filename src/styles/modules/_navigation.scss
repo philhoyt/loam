@@ -94,14 +94,16 @@ $top-item: ".wp-block-navigation .wp-block-navigation__container > .wp-block-nav
 	content: none;
 }
 
+// Primary is a band colour, never a text colour (about 2.8:1 on the tint), so
+// hover, focus and the current item keep the ink and change weight or surface.
 .wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-item__content:hover,
 .wp-block-navigation .wp-block-navigation__submenu-container .wp-block-navigation-item__content:focus {
 	background-color: var(--wp--preset--color--contrast-light);
-	color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--contrast);
 }
 
 .wp-block-navigation .wp-block-navigation__submenu-container .current-menu-item > .wp-block-navigation-item__content {
-	color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--contrast);
 	font-weight: 600;
 }
 
