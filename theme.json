@@ -120,6 +120,7 @@
         }
       },
       "outline": {
+        "color": "var(--wp--preset--color--tertiary)",
         "width": "2px",
         "offset": "2px",
         "style": "solid"
@@ -909,7 +910,7 @@
             "text": "var(--wp--preset--color--base)"
           },
           "outline": {
-            "color": "var(--wp--preset--color--tertiary)",
+            "color": "var(--wp--custom--outline--color)",
             "offset": "var(--wp--custom--outline--offset)",
             "style": "var(--wp--custom--outline--style)",
             "width": "var(--wp--custom--outline--width)"
@@ -1020,7 +1021,7 @@
         },
         ":focus": {
           "outline": {
-            "color": "var(--wp--preset--color--tertiary)",
+            "color": "var(--wp--custom--outline--color)",
             "offset": "var(--wp--custom--outline--offset)"
           }
         }
@@ -1056,7 +1057,7 @@
         },
         ":focus": {
           "outline": {
-            "color": "var(--wp--preset--color--tertiary)",
+            "color": "var(--wp--custom--outline--color)",
             "offset": "var(--wp--custom--outline--offset)"
           }
         }

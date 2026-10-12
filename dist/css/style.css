@@ -81,7 +81,7 @@ input:where([type=email], [type=number], [type=password], [type=search], [type=t
 textarea:focus,
 select:focus,
 input:where([type=email], [type=number], [type=password], [type=search], [type=text], [type=tel], [type=url]):focus {
-  outline: var(--wp--custom--outline--width) var(--wp--custom--outline--style) var(--wp--preset--color--tertiary);
+  outline: var(--wp--custom--outline--width) var(--wp--custom--outline--style) var(--wp--custom--outline--color);
   outline-offset: var(--wp--custom--outline--offset);
 }
 textarea:focus:not(:focus-visible),
@@ -109,7 +109,7 @@ input:where([type=email], [type=number], [type=password], [type=search], [type=t
   color: var(--wp--preset--color--base);
 }
 :where(button:not(.wp-block-navigation__responsive-container-open, .wp-block-navigation__responsive-container-close), input[type=button], input[type=submit], input[type=reset]):where(:focus) {
-  outline: var(--wp--custom--outline--width) var(--wp--custom--outline--style) var(--wp--preset--color--tertiary);
+  outline: var(--wp--custom--outline--width) var(--wp--custom--outline--style) var(--wp--custom--outline--color);
   outline-offset: var(--wp--custom--outline--offset);
 }
 :where(button:not(.wp-block-navigation__responsive-container-open, .wp-block-navigation__responsive-container-close), input[type=button], input[type=submit], input[type=reset]):focus:not(:focus-visible) {
@@ -432,17 +432,60 @@ a:hover {
   text-decoration-color: currentcolor;
 }
 a:focus {
-  outline: var(--wp--custom--outline--width) var(--wp--custom--outline--style) var(--wp--preset--color--tertiary);
+  outline: var(--wp--custom--outline--width) var(--wp--custom--outline--style) var(--wp--custom--outline--color);
   outline-offset: var(--wp--custom--outline--offset);
 }
 a:focus:not(:focus-visible) {
   outline: none !important;
 }
-/* Focus styles */
+/*
+* Focus styles.
+*
+* The ring colour is --wp--custom--outline--color (theme.json), tertiary by
+* default, which holds 3:1 on base and on the tint band. Tertiary fails on the
+* accent and dark bands, so each band sets the property for everything inside
+* it: links, buttons and fields alike. The colour cannot be currentcolor: a
+* focused button on the dark band turns base with contrast text, and the ring
+* sits outside the button on the band.
+*/
 :where(.wp-site-blocks *:focus) {
   outline-width: 2px;
   outline-style: solid;
-  outline-color: var(--wp--preset--color--tertiary);
+  outline-color: var(--wp--custom--outline--color);
+}
+.is-style-section-accent {
+  --wp--custom--outline--color: var(--wp--preset--color--contrast);
+}
+.is-style-section-contrast {
+  --wp--custom--outline--color: var(--wp--preset--color--base);
+}
+/*
+* The mobile menu overlay takes whichever palette colour the Navigation block
+* was given, so map every preset background to a ring that holds 3:1 on it.
+*/
+.wp-block-navigation__responsive-container.is-menu-open.has-base-background-color {
+  --wp--custom--outline--color: var(--wp--preset--color--tertiary);
+}
+.wp-block-navigation__responsive-container.is-menu-open.has-contrast-light-background-color {
+  --wp--custom--outline--color: var(--wp--preset--color--tertiary);
+}
+.wp-block-navigation__responsive-container.is-menu-open.has-primary-background-color {
+  --wp--custom--outline--color: var(--wp--preset--color--contrast);
+}
+.wp-block-navigation__responsive-container.is-menu-open.has-contrast-medium-background-color {
+  --wp--custom--outline--color: var(--wp--preset--color--contrast);
+}
+.wp-block-navigation__responsive-container.is-menu-open.has-secondary-background-color {
+  --wp--custom--outline--color: var(--wp--preset--color--base);
+}
+.wp-block-navigation__responsive-container.is-menu-open.has-contrast-background-color {
+  --wp--custom--outline--color: var(--wp--preset--color--base);
+}
+.wp-block-navigation__responsive-container.is-menu-open.has-contrast-dark-background-color {
+  --wp--custom--outline--color: var(--wp--preset--color--base);
+}
+.wp-block-navigation__responsive-container.is-menu-open.has-tertiary-background-color {
+  --wp--custom--outline--color: var(--wp--preset--color--base);
 }
 /* Increase the bottom margin on submenus, so that the outline is visible. */
 .wp-block-navigation .wp-block-navigation-submenu .wp-block-navigation-item:not(:last-child) {

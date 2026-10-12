@@ -42,7 +42,7 @@ html :where(.woocommerce, .woocommerce-page, .wp-block-woocommerce-add-to-cart-f
 }
 
 html :where(.woocommerce, .woocommerce-page, .wp-block-woocommerce-add-to-cart-form, .wp-block-woocommerce-catalog-sorting) :is(.input-text, input.qty, select, textarea):focus {
-  outline: var(--wp--custom--outline--width) var(--wp--custom--outline--style) var(--wp--preset--color--tertiary);
+  outline: var(--wp--custom--outline--width) var(--wp--custom--outline--style) var(--wp--custom--outline--color);
   outline-offset: var(--wp--custom--outline--offset);
 }
 
@@ -318,8 +318,8 @@ html :is(.wp-block-woocommerce-cart, .wp-block-woocommerce-checkout, .wc-block-m
 html :is(.wp-block-woocommerce-cart, .wp-block-woocommerce-checkout, .wc-block-mini-cart__drawer) .wc-block-components-text-input input:focus,
 html :is(.wp-block-woocommerce-cart, .wp-block-woocommerce-checkout, .wc-block-mini-cart__drawer) .wc-block-components-textarea:focus,
 html :is(.wp-block-woocommerce-cart, .wp-block-woocommerce-checkout, .wc-block-mini-cart__drawer) .wc-blocks-components-select .wc-blocks-components-select__select:focus {
-  border-color: var(--wp--preset--color--tertiary);
-  box-shadow: 0 0 0 1px var(--wp--preset--color--tertiary);
+  border-color: var(--wp--custom--outline--color);
+  box-shadow: 0 0 0 1px var(--wp--custom--outline--color);
 }
 
 html :is(.wp-block-woocommerce-cart, .wp-block-woocommerce-checkout, .wc-block-mini-cart__drawer) {
