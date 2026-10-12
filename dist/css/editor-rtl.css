@@ -5,6 +5,12 @@
 .wp-site-blocks > * {
   margin-block: 0;
 }
+.is-style-section-accent {
+  --wp--custom--outline--color: var(--wp--preset--color--contrast);
+}
+.is-style-section-contrast {
+  --wp--custom--outline--color: var(--wp--preset--color--base);
+}
 .wp-block-cover :where(h1, h2, h3) {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }

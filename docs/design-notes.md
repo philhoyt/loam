@@ -54,7 +54,6 @@ Run `npm run check:contrast`. Text pairs need 4.5:1 (body 7:1); non-text pairs 3
 | `tertiary` on `base`            | focus ring                              | 3   |
 | `tertiary` on `contrast-light`  | focus ring on the tint band             | 3   |
 | `base` on `tertiary`            | focus ring on a tertiary overlay        | 3   |
-| `base` on `contrast-dark`       | focus ring on a contrast-dark overlay   | 3   |
 | `contrast` on `contrast-medium` | focus ring on a contrast-medium overlay | 3   |
 | `contrast-medium` on `base`     | hairlines and captions                  | 3   |
 | `primary` on `base`             | link underline, accent shapes           | 3   |

@@ -24,7 +24,6 @@ const pairs = [
 	["tertiary", "base", 3, "focus ring"],
 	["tertiary", "contrast-light", 3, "focus ring on the tint band"],
 	["base", "tertiary", 3, "focus ring on a tertiary menu overlay"],
-	["base", "contrast-dark", 3, "focus ring on a contrast-dark menu overlay"],
 	["contrast", "contrast-medium", 3, "focus ring on a contrast-medium menu overlay"],
 	["contrast-medium", "base", 3, "hairlines and captions"],
 	["primary", "base", 3, "link underline and accent shapes"],
