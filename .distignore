@@ -2,6 +2,7 @@
 .github
 .claude
 .wp-env.json
+.wp-env.override.json
 .wp-env.review.json
 .gitignore
 .distignore
