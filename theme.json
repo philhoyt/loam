@@ -973,20 +973,9 @@
         "color": {
           "text": "var(--wp--preset--color--contrast)"
         },
-        "typography": {
-          "textDecoration": "underline"
-        },
         ":hover": {
           "color": {
             "text": "var(--wp--preset--color--contrast)"
-          },
-          "typography": {
-            "textDecoration": "underline"
-          }
-        },
-        ":focus": {
-          "typography": {
-            "textDecoration": "underline"
           }
         }
       },
