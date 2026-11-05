@@ -56,6 +56,10 @@ Yes. With WooCommerce active, Loam's own templates are used for the shop, produc
 
 Open the Site Editor, go to Styles and choose a colour preset, or edit the palette. Bands, buttons and links follow the palette; the patterns carry no fixed colour values. WooCommerce's error and warning notices keep their own red and amber.
 
+= How do I change the colour of the link underline? =
+
+Links are the ink colour with an underline in the accent colour. The underline colour is not a setting in the Styles panel, so add a rule to Styles > Additional CSS, for example `a { text-decoration-color: var(--wp--preset--color--tertiary); }`. Add `a:hover { text-decoration-color: var(--wp--preset--color--contrast-dark); }` to change it on hover as well.
+
 = Is there a dark colour preset? =
 
 No. All four presets are light, because the section styles assume a light page ground.
@@ -65,6 +69,9 @@ No. All four presets are light, because the section styles assume a light page g
 The FAQ pattern uses the core Accordion block, added in WordPress 6.9.
 
 == Changelog ==
+
+= 1.2.1 =
+* Fix: A rule in Styles > Additional CSS can change the colour of the link underline. The theme's own underline rule used to win over it.
 
 = 1.2.0 =
 * Add: Six patterns from Fairport: Hero with buttons, Page title banner, Three signposts, Statement over a photo, an inline call to action and a Team member card.

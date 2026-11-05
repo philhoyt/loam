@@ -450,15 +450,21 @@ html {
   }
 }
 /*
-* Link styles
+* Link styles. The underline lives here, not in theme.json: the
+* `text-decoration` shorthand that Global Styles emits for the link element
+* resets `text-decoration-color`, so the colour has to come from a rule printed
+* after it. The rules have zero specificity so that a plain `a { }` rule in
+* Styles > Additional CSS can recolour the underline; this stylesheet is printed
+* after Global Styles, so an equal-specificity rule there would lose.
 * https://github.com/WordPress/gutenberg/issues/42319
 */
-a {
+:where(a) {
+  text-decoration-line: underline;
   text-decoration-thickness: 2px !important;
   text-underline-offset: 0.15em;
   text-decoration-color: var(--wp--preset--color--primary);
 }
-a:hover {
+:where(a:hover) {
   text-decoration-color: currentcolor;
 }
 a:focus {
