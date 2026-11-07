@@ -104,6 +104,18 @@ body {
 }
 
 /*
+* A flex layout (the Row block, or a Group set to row) sizes each item to its
+* longest word, so a long email address or URL holds the item open and pushes
+* it past the edge of a phone screen, and an image beside it is squeezed to
+* nothing. Let the items shrink instead; the body rule above then breaks the
+* long word within the item. Core does the same for Columns. Zero specificity,
+* so a block that sets its own minimum width keeps it.
+*/
+:where(.is-layout-flex) > * {
+	min-width: 0;
+}
+
+/*
 * The previous and next links share one row. Cap each at half of it and let a
 * long title break anywhere, so one unbreakable title cannot push the row wider
 * than the page or squeeze the other link down to a few characters. A link on
