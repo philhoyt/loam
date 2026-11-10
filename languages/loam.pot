@@ -26,7 +26,7 @@ msgstr ""
 
 #. Description of the theme
 #: style.css
-msgid "A block theme for venues, bars, bowling alleys and clubs. Heavy uppercase headings, chunky buttons, a cream ground with accent-coloured bands, and patterns for upcoming events, four signpost tiles, a food and drink menu, hours and location, and an FAQ. Four seasonal colour presets and three section styles restyle every band from Global Styles."
+msgid "A bold block theme with heavy uppercase headings, chunky buttons and a cream page broken up by bands of colour. Patterns cover upcoming events, signpost tiles, a food and drink menu, hours and location, and an FAQ, so it suits sites that run events and keep opening hours. Four seasonal colour presets and three section styles restyle every band from Global Styles."
 msgstr ""
 
 #. Author of the theme

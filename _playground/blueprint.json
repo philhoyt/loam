@@ -2,7 +2,7 @@
   "$schema": "https://playground.wordpress.net/blueprint-schema.json",
   "meta": {
     "title": "Loam",
-    "description": "A block theme for venues, bars, bowling alleys and clubs: heavy uppercase headings, chunky buttons, accent-coloured bands, four seasonal colour presets and patterns for events, menus, hours and FAQs.",
+    "description": "A bold block theme with heavy uppercase headings, chunky buttons, bands of colour, four seasonal colour presets and patterns for events, menus, hours and FAQs.",
     "author": "philhoyt",
     "categories": ["themes", "block-theme"]
   },

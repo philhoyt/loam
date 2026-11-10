@@ -8,7 +8,7 @@ License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: e-commerce, one-column, wide-blocks, block-patterns, block-styles, custom-colors, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, rtl-language-support, style-variations, threaded-comments, translation-ready, entertainment, food-and-drink
 
-A block theme for venues, bars, bowling alleys and clubs
+A bold block theme with heavy uppercase headings, chunky buttons and bands of colour, for sites that run events and keep opening hours
 
 == Description ==
 

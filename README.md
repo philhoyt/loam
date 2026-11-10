@@ -2,11 +2,14 @@
 
 [![Playground Demo](https://img.shields.io/badge/Playground_Demo-blue?logo=wordpress&logoColor=%23fff&labelColor=%233858e9&color=%23386be9)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/philhoyt/loam/main/_playground/blueprint.json)
 
-A block theme for venues, bars, bowling alleys and clubs: heavy uppercase headings,
-chunky buttons, a cream ground with accent-coloured bands, and patterns for upcoming
-events, signpost tiles, a food and drink menu, hours and location, and an FAQ. Four
-seasonal colour presets (Summer, Spring, Autumn, Winter) and three section styles
-restyle every band from Global Styles.
+A bold block theme with heavy uppercase headings, chunky buttons and a cream page
+broken up by bands of colour. Patterns cover upcoming events, signpost tiles, a food
+and drink menu, hours and location, and an FAQ, so it suits sites that run events and
+keep opening hours. Four seasonal colour presets (Summer, Spring, Autumn, Winter) and
+three section styles restyle every band from Global Styles.
+
+The demo content imagines a bowling alley and music bar. It is placeholder copy, there
+to be replaced.
 
 Colours, typography, spacing and layout widths live in `theme.json`. Templates and
 template parts are thin block-markup shells; the block markup that matters lives in
