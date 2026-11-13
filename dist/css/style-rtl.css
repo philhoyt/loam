@@ -5,30 +5,21 @@
 .wp-site-blocks {
   width: 100%;
   min-block-size: 100svh;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  grid-template-rows: auto 1fr auto;
-  grid-template-areas: "header" "main" "footer";
+  display: flex;
+  flex-direction: column;
 }
 body.admin-bar .wp-site-blocks {
   min-block-size: calc(100svh - var(--global--admin-bar--height));
 }
+.wp-site-blocks > * {
+  min-inline-size: 0;
+}
 .wp-site-blocks > header {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: header;
   position: relative;
   z-index: 2;
 }
 .wp-site-blocks > main {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  grid-area: main;
-}
-.wp-site-blocks > footer {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
-  grid-area: footer;
+  flex: 1 0 auto;
 }
 .wp-site-blocks > * {
   margin-block: 0;
