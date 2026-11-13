@@ -210,7 +210,7 @@ Prettier (`.prettierignore`) so they do not show up as lint targets themselves.
 ### Conventions
 
 - Tabs for indentation (PHP, JS, SCSS, HTML); spaces for JSON/YAML
-- Theme layout uses CSS Grid on `.wp-site-blocks` (header/main/footer)
+- Theme layout is a flex column on `.wp-site-blocks` with `main` growing to pin the footer. Not a grid with named areas: the Site Editor allows blocks at the top level of a template, and a grid would auto-place them after the footer while the editor shows them in order
 - Core block patterns are disabled; custom patterns go in `patterns/`
 - No custom image sizes are registered. Add `add_image_size()` only once a pattern or template consumes the size — unused sizes bloat every upload and get flagged in a directory review
 - `dist/css/style-rtl.css` is served automatically via `wp_style_add_data( …, 'rtl', 'replace' )`; nothing extra is needed for RTL locales

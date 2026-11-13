@@ -70,6 +70,9 @@ The FAQ pattern uses the core Accordion block, added in WordPress 6.9.
 
 == Changelog ==
 
+= 1.2.3 =
+* Fix: A block added at the top level of a template, such as a Spacer between the content and the footer, stays where it was placed. It used to move below the footer on the live site while the Site Editor showed it in place.
+
 = 1.2.2 =
 * Fix: A long word inside a Row block, such as an email address or a web address, wraps on phones instead of running off the screen. An image beside it used to shrink to nothing.
 

@@ -5,37 +5,37 @@
 @use "../tools/context";
 
 @include context.is(front) {
+	// A flex column rather than a grid with named header, main and footer
+	// areas. The Site Editor lets a block be placed at the top level of a
+	// template, and a grid area layout auto-places any such block after the
+	// footer on the front end while the editor shows it in source order. A
+	// column keeps the order; `main` grows so the footer still sits at the
+	// bottom of a short page.
 	.wp-site-blocks {
 		width: 100%;
 		min-block-size: 100svh;
-		display: grid;
-
-		// `minmax(0, …)` rather than a bare `1fr`: a grid track is never narrower
-		// than its widest content, so one unbreakable word or a wide `<pre>`
-		// would otherwise stretch the header, main and footer past the viewport.
-		grid-template-columns: minmax(0, 1fr);
-		grid-template-rows: auto 1fr auto;
-		grid-template-areas:
-			"header"
-			"main"
-			"footer";
+		display: flex;
+		flex-direction: column;
 
 		body.admin-bar & {
 			min-block-size: calc(100svh - var(--global--admin-bar--height));
 		}
 
+		// Flex items stretch to the column's width and do not widen it, so one
+		// unbreakable word or a wide `<pre>` overflows its own block rather than
+		// the page. `min-inline-size: 0` guards the same thing for any item that
+		// sets its own inline size.
+		> * {
+			min-inline-size: 0;
+		}
+
 		> header {
-			grid-area: header;
 			position: relative;
 			z-index: 2;
 		}
 
 		> main {
-			grid-area: main;
-		}
-
-		> footer {
-			grid-area: footer;
+			flex: 1 0 auto;
 		}
 	}
 }
